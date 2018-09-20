@@ -1,21 +1,24 @@
+const mysql = require("mysql");
 require("dotenv").config();
-var Sequelize = require("sequelize");
 
-// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-var sequelize = new Sequelize(
-  "example.db",
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
-    dialect: "mysql",
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
-    }
-  }
-);
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: "burgers_db"
+  });
+}
 
-module.exports = sequelize;
+connection.connect(function(err) {
+  if (err) {
+    console.error("error coneccting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
+module.exports = connection;
