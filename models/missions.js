@@ -1,18 +1,18 @@
-
 var Sequelize = require("sequelize");
-var sequelize = require("../config/connection.js");
 
-var Mission = sequelize.define("mission", {
+var Missions = sequelize.define(
+  "mission",
+  {
+    missionName: Sequelize.STRING,
 
-  missionName: Sequelize.STRING,
+    days: Sequelize.INTEGER,
 
-  days: Sequelize.INTEGER,
-
-  teamSize: Sequelize.INTEGER,
-  
-}, {
-  timestamps: true
-});
+    teamSize: Sequelize.INTEGER
+  },
+  {
+    timestamps: true
+  }
+);
 
 // Makes the Character Model available for other files (will also create a table)
-module.exports = Mission;
+module.exports = Missions;

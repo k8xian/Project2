@@ -1,19 +1,20 @@
+// var Sequelize = require("sequelize");
 
-var Sequelize = require("sequelize");
-var sequelize = require("../config/connection.js");
+var Winners = sequelize.define(
+  "winner",
+  {
+    missionName: Sequelize.STRING,
 
-var Winners = sequelize.define("winner", {
+    days: Sequelize.INTEGER,
 
-  missionName: Sequelize.STRING,
+    astronautsAlive: Sequelize.INTEGER,
 
-  days: Sequelize.INTEGER,
+    message: Sequelize.INTEGER
+  },
+  {
+    timestamps: true
+  }
+);
 
-  astronautsAlive: Sequelize.INTEGER,
-
-  message: Sequelize.INTEGER,
-}, {
-  timestamps: true
-});
-
-// Makes the Character Model available for other files (will also create a table)
+// // Makes the Character Model available for other files (will also create a table)
 module.exports = Winners;

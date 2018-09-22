@@ -5,6 +5,10 @@
         "node": true,
         "jquery": true
     },
+    "extends": "prettier",
+    "plugins": [
+        "prettier"
+      ],
     "rules": {
         "no-duplicate-case":"error",
         "no-empty":"error",
@@ -34,6 +38,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "prettier/prettier": "error"
+    
     }
 }
