@@ -1,8 +1,8 @@
 var db = require("../models");
 
 // Requires for story driven data
-var event = require('../public/data/data.js');
-var checkpoint = require('../public/data/data.js');
+var event = require("../public/data/data.js");
+var checkpoint = require("../public/data/data.js");
 
 console.log(event[0].name);
 console.log(checkpoint[0].name);
