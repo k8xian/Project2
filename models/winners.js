@@ -8,7 +8,7 @@ var Winners = sequelize.define("winner", {
 
   days: Sequelize.INTEGER,
 
-  astronautsAlive: Sequelize.STRING,
+  astronautsAlive: Sequelize.INTEGER,
 
   message: Sequelize.INTEGER,
 }, {
