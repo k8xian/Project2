@@ -9,14 +9,13 @@ var final = 58000000;
 var distance = 0;
 
 var fast = 58000;
-var slow = ;
+var slow;
 
 //this will become the speed selected
 var speedSelected;
 
 //this increments per second in realtime, this is equal to an hour
-var timeIncremented = speedSelected*2
-
+var timeIncremented = speedSelected * 2;
 
 //days increment as a function of distance and realtime - figure that out
 var days = timeIncremented / 12;
