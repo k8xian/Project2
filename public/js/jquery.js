@@ -25,7 +25,7 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    var speed = $("input[name=background]")
+    var speed = $("input[name=switch_2]")
       .attr("checked", true)
       .val();
 
