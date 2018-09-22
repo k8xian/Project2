@@ -42,7 +42,7 @@ $(document).ready(function() {
       speed: speed
     };
 
-    $.ajax("/api/cats", {
+    $.ajax("/api/mission", {
       type: "POST",
       data: newMission
     }).then(function() {
