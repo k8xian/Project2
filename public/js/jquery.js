@@ -46,9 +46,27 @@ $(document).ready(function() {
       type: "POST",
       data: newMission
     }).then(function() {
-      console.log("created new cat");
+      console.log("added a new mission");
       //redirect to new page
     });
+  });
+
+
+  $(".gameplay").on("submit", function(event) {
+    event.preventDefault();
+    var speed = $("input[name=switch_2]").attr("checked", true).val();
+    var newMission = {
+      speed: speed
+    };
+
+    $.ajax("/api/mission", {
+      type: "POST",
+      data: newMission
+    }).then(function() {
+      console.log("chnaged speed");
+      //redirect to new page
+    });
+
   });
 
   //ajax to somehow pass this back to the API
