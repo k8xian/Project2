@@ -9,10 +9,10 @@ var db = {};
 require("dotenv").config();
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+  var sequelize = new Sequelizeh(process.env[config.use_env_variable]);
 }
 if (process.env.JAWSDB_URL) {
-  var sequelize = new Sequelize.createConnection(process.env.JAWSDB_URL);
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   sequelize = new Sequelize(
     "mars_db",
