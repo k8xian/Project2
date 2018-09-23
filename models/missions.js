@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../config/connection.js");
 
 var Missions = sequelize.define(
   "mission",
@@ -13,6 +14,8 @@ var Missions = sequelize.define(
     timestamps: true
   }
 );
+
+Missions.sync();
 
 // Makes the Character Model available for other files (will also create a table)
 module.exports = Missions;

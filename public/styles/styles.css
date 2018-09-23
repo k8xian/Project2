@@ -6,6 +6,7 @@
   --color-dark: rgba(0,0,0,.54);
   --color-light: rgba(255,255,255,.54);
   --background: #282261;
+  --font-display: 'Righteous', cursive;
 }
 
 body{
@@ -13,6 +14,70 @@ body{
   color: var(--color-main);
   background: var(--background);
 }
+
+h1{
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 4em;
+  margin: auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h2, h3{
+  margin-top: 30px;
+  text-align: center;
+  color: rgba(255,255,255,.5);
+}
+header a, a:visited {
+  text-decoration:none;
+  color:#fcfcfc;
+}
+
+@media screen and (max-width: 320px){
+  h1{
+    font-size: 2em;
+  }
+}
+
+hr.title__page{
+  width: 90%;
+  margin: auto;
+  background-color: var(--color-highlight);
+  height: 14px;
+  border: 0;
+  border-radius: 7px;
+  box-shadow: 0 0 20px rgba(255,255,255,.9);
+}
+
+hr.title__page.bottom{
+  position: fixed;
+  bottom: 50px;
+  left: 5%;
+  right: 5%;
+}
+
+a.title__option {
+  clear: both;
+  width: 90%;
+  text-align: center;
+  display: block;
+  margin: 50px auto;
+  cursor: pointer;
+  transition-duration: 500ms;
+  transition-property: color;
+  transition-timing-function: ease-in-out;
+  border-radius: 7px;
+  text-decoration: none;
+  color: var(--color-main);
+}
+
+a.title__option:hover{
+color: var(--color-highlight);
+}
+a.title__option:visited, a.title__option:focus{
+text-decoration: none;
+  }
 
 .start {
   display: grid;
@@ -360,22 +425,6 @@ http://www.Mkrtchyan.zz.mu
 * {
     margin: 0;
     padding: 0;
-}
-
-h2{
-    margin-top: 30px;
-    text-align: center;
-}
-header h2{
-    font-size: 22px;
-    margin: 0 auto;
-    padding: 10px 0;
-    width: 80%;
-    text-align: center;
-}
-header a, a:visited {
-    text-decoration:none;
-    color:#fcfcfc;
 }
 
 @keyframes move-twink-back {
