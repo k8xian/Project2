@@ -69,16 +69,16 @@
                 <div class="control__item" id="travelled">0</div>
                 <div class="control__item">
                     <div class="switch-field gameplay">
-                            <input type="radio" id="switch_right" name="switch_2" value="fast" />
-                            <label for="switch_right">fast</label>
-                            <input type="radio" id="switch_left" name="switch_2" value="slow" checked />
-                            <label for="switch_left">slow</label>
-                        </div>
+                        <input type="radio" id="switch_right" name="switch_2" value="fast" />
+                        <label for="switch_right">fast</label>
+                        <input type="radio" id="switch_left" name="switch_2" value="slow" checked />
+                        <label for="switch_left">slow</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -89,3 +89,28 @@
 <script src="/js/timeout.js"></script>
 
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+
+{{!-- Fetch to retrieve space weather data --}}
+<script type="text/javascript">
+    var kIndex;
+    var url = 'https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json';
+
+    var weatherReport = ['cold front', 'nippy', 'muggy', 'wear shorts', 'sunny w/ a high of uv', 'the electron shuffle', 'danger, stay indoors', 'seriously, who popped a sun spot', 'direct eye contact will cause death']
+
+    fetch(url)
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            // Work with JSON data here
+            var spaceWeather = data[1];
+            kIndex = spaceWeather[1];
+            console.log(kIndex);
+            $('#spaceWeather').text(weatherReport[kIndex]);
+        }).catch(err => {
+            // Do something for an error here
+            throw err
+        });
+
+</script>
