@@ -16,6 +16,10 @@ module.exports = function(app) {
   app.get("/win", function(req, res) {
     res.render("win");
   });
+  app.get("/minigame", function(req,res){
+    res.render("minigame");
+    });
+  
   //   // Load example page and pass in an example by id
   //   app.get("/example/:id", function(req, res) {
   //     db.Example.findOne({ where: { id: req.params.id } }).then(function(
