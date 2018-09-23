@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS `mars_db`;
+CREATE DATABASE `mars_db`;
+
+USE mars_db;
+
+CREATE TABLE winner(
+id INT NOT NULL AUTO_INCREMENT,
+distance INT NOT NULL,
+days INT NOT NULL,
+v_message VARCHAR (255),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE loser(
+id INT NOT NULL AUTO_INCREMENT,
+distance INT NOT NULL,
+days INT NOT NULL,
+epitaph VARCHAR (255),
+PRIMARY KEY (id)
+);
+

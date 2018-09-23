@@ -64,7 +64,7 @@ $(document).ready(function() {
       type: "POST",
       data: newMission
     }).then(function() {
-      console.log("chnaged speed");
+      console.log("changed speed");
       //redirect to new page
     });
   });
