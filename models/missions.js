@@ -14,7 +14,15 @@ var Missions = sequelize.define(
 
     fuel: Sequelize.INTEGER,
 
-    astronautsAlive: Sequelize.INTEGER
+    astronautOne: Sequelize.STRING,
+
+    astronautTwo: Sequelize.STRING,
+
+    astronautThree: Sequelize.STRING,
+
+    astronautFour: Sequelize.STRING,
+
+    speed: Sequelize.INTEGER
   },
   {
     timestamps: true

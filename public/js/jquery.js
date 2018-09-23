@@ -18,20 +18,24 @@ $(document).ready(function() {
     var astronautFour = $("#astronautFour")
       .val()
       .trim();
-    var speed = $("input[name=switch_2]")
-      .attr("checked", true)
-      .val();
+
+    var speed;
+    if ($("input[name=switch_2]").val() === "fast") {
+      speed = 116000;
+    } else {
+      speed = 58000;
+    }
 
     var newMission = {
       missionName: missionName,
-      astronauts: {
-        astronautOne: astronautOne,
-        astronautTwo: astronautTwo,
-        astronautThree: astronautThree,
-        astronautFour: astronautFour,
-        astronautFive: astronautFive,
-        astronautSix: astronautSix
-      },
+      days: 0,
+      distance: 0,
+      oxygen: 100,
+      fuel: 100,
+      astronautOne: astronautOne,
+      astronautTwo: astronautTwo,
+      astronautThree: astronautThree,
+      astronautFour: astronautFour,
       speed: speed
     };
 
