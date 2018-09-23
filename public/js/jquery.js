@@ -51,10 +51,11 @@ $(document).ready(function() {
     });
   });
 
-
   $(".gameplay").on("submit", function(event) {
     event.preventDefault();
-    var speed = $("input[name=switch_2]").attr("checked", true).val();
+    var speed = $("input[name=switch_2]")
+      .attr("checked", true)
+      .val();
     var newMission = {
       speed: speed
     };
@@ -63,10 +64,9 @@ $(document).ready(function() {
       type: "POST",
       data: newMission
     }).then(function() {
-      console.log("chnaged speed");
+      console.log("changed speed");
       //redirect to new page
     });
-
   });
 
   //ajax to somehow pass this back to the API
