@@ -57,3 +57,4 @@ module.exports = db;
 // module.exports = sequelize;
 // module.exports = Winners;
 // module.exports = Losers;
+// module.exports = Missions;

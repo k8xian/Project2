@@ -4,24 +4,16 @@ var sequelize = require("../config/connection.js");
 var Missions = sequelize.define(
   "mission",
   {
+    routeName: Sequelize.STRING,
     missionName: Sequelize.STRING,
-
     days: Sequelize.INTEGER,
-
     distance: Sequelize.INTEGER,
-
     oxygen: Sequelize.INTEGER,
-
     fuel: Sequelize.INTEGER,
-
     astronautOne: Sequelize.STRING,
-
     astronautTwo: Sequelize.STRING,
-
     astronautThree: Sequelize.STRING,
-
     astronautFour: Sequelize.STRING,
-
     speed: Sequelize.INTEGER
   },
   {

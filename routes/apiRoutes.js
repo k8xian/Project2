@@ -1,4 +1,5 @@
 var db = require("../models");
+var Missions = require("../models/missions.js");
 
 // Requires for story driven data
 var event = require("../public/data/data.js");
@@ -10,7 +11,7 @@ console.log(checkpoint[0].name);
 module.exports = function(app) {
   // Get all examples
   app.get("/api/event", function(req, res) {
-    db.Mission.findAll({}).then(function(dbMissions) {
+    db.Missions.findAll({}).then(function(dbMissions) {
       res.json(dbMissions);
     });
   });
@@ -28,8 +29,26 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.get("/api/mission", function(req, res) {
-    return res.json(newMission);
+  app.post("/api/mission", function(req, res) {
+    var mission = req.body;
+    console.log(mission);
+    console.log(res);
+
+    var routeName = mission.missionName.replace(/\s+/g, "").toLowerCase();
+
+    Missions.create({
+      routeName: routeName,
+      missionName: mission.missionName,
+      days: mission.days,
+      distance: mission.distance,
+      oxygen: mission.oxygen,
+      fuel: mission.fuel,
+      astronautOne: mission.astronautOne,
+      astronautTwo: mission.astronautTwo,
+      astronautThree: mission.astronautThree,
+      astronautFour: mission.astronautFour,
+      speed: mission.speed
+    });
   });
 };
 //   // Delete an example by id
