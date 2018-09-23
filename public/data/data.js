@@ -4,19 +4,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -24,19 +24,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -44,19 +44,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -64,19 +64,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -84,19 +84,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -104,19 +104,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   }
 ];
@@ -127,19 +127,19 @@ var checkpoint = [
     image: "url",
     fact: "stuff goes here",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -147,19 +147,19 @@ var checkpoint = [
     image: "url",
     fact: "stuff goes here",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -167,22 +167,24 @@ var checkpoint = [
     image: "url",
     fact: "stuff goes here",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   }
 ];
 
-module.exports = event;
-module.exports = checkpoint;
+module.exports = {
+  event,
+  checkpoint
+}
