@@ -29,6 +29,7 @@ $(document).ready(function() {
     }
 
     var newMission = {
+      routeName: missionName,
       missionName: missionName,
       days: 0,
       distance: 0,
@@ -51,23 +52,23 @@ $(document).ready(function() {
     });
   });
 
-  $(".gameplay").on("submit", function(event) {
-    event.preventDefault();
-    var speed = $("input[name=switch_2]")
-      .attr("checked", true)
-      .val();
-    var newMission = {
-      speed: speed
-    };
+  // $(".gameplay").on("submit", function(event) {
+  //   event.preventDefault();
+  //   var speed = $("input[name=switch_2]")
+  //     .attr("checked", true)
+  //     .val();
+  //   var newMission = {
+  //     speed: speed
+  //   };
 
-    $.ajax("/api/mission", {
-      type: "POST",
-      data: newMission
-    }).then(function() {
-      console.log("changed speed");
-      //redirect to new page
-    });
-  });
+  //   $.ajax("/api/mission", {
+  //     type: "POST",
+  //     data: newMission
+  //   }).then(function() {
+  //     console.log("changed speed");
+  //     //redirect to new page
+  //   });
+  // });
 
   //ajax to somehow pass this back to the API
 });
