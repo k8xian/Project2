@@ -1,21 +1,23 @@
 $(document).ready(function() {
-  $(".newMissionData").on("submit", function(event) {
+  console.log("I'm ready!");
+  $("#launch").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log("I got clicked!");
 
     var missionName = $("#missionName")
       .val()
       .trim();
-    var astronautOne = $("#astronautOne")
+    var astronautOne = $("#astronautOneName")
       .val()
       .trim();
-    var astronautTwo = $("#astronautTwo")
+    var astronautTwo = $("#astronautTwoName")
       .val()
       .trim();
-    var astronautThree = $("#astronautThree")
+    var astronautThree = $("#astronautThreeName")
       .val()
       .trim();
-    var astronautFour = $("#astronautFour")
+    var astronautFour = $("#astronautFourName")
       .val()
       .trim();
 
