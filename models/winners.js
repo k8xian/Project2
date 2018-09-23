@@ -1,4 +1,5 @@
-// var Sequelize = require("sequelize");
+var Sequelize = require("sequelize");
+var sequelize = require("../config/connection.js");
 
 var Winners = sequelize.define(
   "winner",
@@ -16,5 +17,6 @@ var Winners = sequelize.define(
   }
 );
 
+Winners.sync();
 // // Makes the Character Model available for other files (will also create a table)
 module.exports = Winners;

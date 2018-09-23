@@ -1,4 +1,5 @@
 var Sequelize = require("sequelize");
+var sequelize = require("../config/connection.js");
 
 var Losers = sequelize.define(
   "loser",
@@ -7,6 +8,8 @@ var Losers = sequelize.define(
 
     days: Sequelize.INTEGER,
 
+    distance: Sequelize.INTEGER,
+
     epitaph: Sequelize.INTEGER
   },
   {
@@ -14,5 +17,6 @@ var Losers = sequelize.define(
   }
 );
 
+Losers.sync();
 // Makes the Character Model available for other files (will also create a table)
 module.exports = Losers;

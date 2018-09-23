@@ -1,4 +1,4 @@
-var db = require("../config/connection.js");
+var db = require("../models");
 
 // Requires for story driven data
 var event = require("../public/data/data.js");
@@ -26,6 +26,10 @@ module.exports = function(app) {
     db.Mission.create(req.body).then(function(newMission) {
       res.json(newMission);
     });
+  });
+
+  app.get("/api/mission", function(req, res) {
+    return res.json(newMission);
   });
 };
 //   // Delete an example by id
