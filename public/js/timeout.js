@@ -1,8 +1,9 @@
-// variables for speeds
-// fast is going to be 58,000 km/h but stat will increment at double the speed per second
-// same can be said about the slow speed
-
+// confirm connection to timeout
 console.log("connected to timeout.js");
+
+// requiring story functions
+// var randomEvent = require("./function.js")
+// console.log(randomEvent);
 
 // distance to mars from earth in km
 var final = 58000000;
@@ -38,51 +39,50 @@ function increment() {
   eventTimer++;
   dayIncrements++;
 
-  distance = (distance % final) + fast;
-  $("#travelled").text(distance);
-
     if (speedSelected === fast) {
       distance = (distance % final) + fast;
+      $("#travelled").text(distance);
       // switch case for distance variable
       switch (distance) {
-      case (distance >= final):
-        console.log('made it to mars')
-        break;
-      case (distance === moonDistance):
-        console.log('made it to the moon')
-        break;
-      case (distance === midpointDistance):
-        console.log('half-way there')
-        break;
-      case (distance === deimosDistance):
-        console.log('made it to deimos')
-        break;
+        case (distance === moonDistance):
+            console.log('made it to the moon')
+            break;
+        case (distance >= final):
+            console.log('made it to mars')
+            break;
+        case (distance === midpointDistance):
+            console.log('half-way there')
+            break;
+        case (distance === deimosDistance):
+            console.log('made it to deimos')
+            break;
       }
     }
     else {
       distance = (distance % final) + slow;
+      $("#travelled").text(distance);
       switch (distance) {
         case (distance >= final):
-          console.log('made it to mars')
-          break;
+            console.log('made it to mars')
+            break;
         case (distance === moonDistance):
-          console.log('made it to the moon')
-          break;
+            console.log('made it to the moon')
+            break;
         case (distance === midpointDistance):
-          console.log('half-way there')
-          break;
+            console.log('half-way there')
+            break;
         case (distance === deimosDistance):
-          console.log('made it to deimos')
-          break;
+            console.log('made it to deimos')
+            break;
         }
     }
 
   // After the distance check, this function will then check if it's time for a random event
-  if (eventTimer % 60 == 0) {
+  if ((eventTimer % 60) === 0) {
     console.log("random event was triggered");
   }
 
-  if (dayIncrements % 12 == 0) {
+  if ((dayIncrements % 12) === 0) {
     days++;
     sols = days * 1.0114;
     $("#earthDays").text(days);

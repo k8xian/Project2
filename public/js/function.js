@@ -11,10 +11,10 @@ function randomEvent () {
         result: event.result,
         multiplier: event.multiplier
     }
-
     console.log(selectedEvent);
+    return selectedEvent
 }
 
 module.exports = {
-    randomEvent()
+    randomEvent: randomEvent()
 }
