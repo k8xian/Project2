@@ -23,7 +23,7 @@ var moonDistance = 348000;
 var midpointDistance = 29000000;
 var deimosDistance = 57420000;
 
-var speedSelected = true;
+var speedSelected = fast // or slow
 
 // timeout function for checkpoint and event triggers
 var eventTimer = 0;
@@ -41,49 +41,41 @@ function increment() {
   distance = (distance % final) + fast;
   $("#travelled").text(distance);
 
-  //   if (speedSelected) {
-  //     distance = (distance % final) + fast;
-  //     // switch case for distance variable
-  //     switch (distance) {
-  //     case distance >= final:
-  //       clearInterval();
-  //       marsFunction(); // THESE FUNCTIONS ARE JUST PLACEHOLDERS
-  //       break;
-  //     case distance === moonDistance:
-  //       clearInterval();
-  //       moonFunction(); // THESE FUNCTIONS ARE JUST PLACEHOLDERS
-  //       break;
-  //     case distance === midpointDistance:
-  //       clearInterval();
-  //       midpointFunction(); // THESE FUNCTIONS ARE JUST PLACEHOLDERS
-  //       break;
-  //     case distance === deimosDistance:
-  //       clearInterval();
-  //       deimosFunction(); // THESE FUNCTIONS ARE JUST PLACEHOLDERS
-  //       break;
-  //     }
-  //   }
-  //   else {
-  //     distance = (distance % final) + slow;
-  //     switch (distance) {
-  //     case distance >= final:
-  //       clearInterval();
-  //       marsFunction();
-  //       break;
-  //     case distance === moonDistance:
-  //       clearInterval();
-  //       moonFunction();
-  //       break;
-  //     case distance === midpointDistance:
-  //       clearInterval();
-  //       midpointFunction();
-  //       break;
-  //     case distance === deimosDistance:
-  //       clearInterval();
-  //       deimosFunction();
-  //       break;
-  //     }
-  //   }
+    if (speedSelected === fast) {
+      distance = (distance % final) + fast;
+      // switch case for distance variable
+      switch (distance) {
+      case (distance >= final):
+        console.log('made it to mars')
+        break;
+      case (distance === moonDistance):
+        console.log('made it to the moon')
+        break;
+      case (distance === midpointDistance):
+        console.log('half-way there')
+        break;
+      case (distance === deimosDistance):
+        console.log('made it to deimos')
+        break;
+      }
+    }
+    else {
+      distance = (distance % final) + slow;
+      switch (distance) {
+        case (distance >= final):
+          console.log('made it to mars')
+          break;
+        case (distance === moonDistance):
+          console.log('made it to the moon')
+          break;
+        case (distance === midpointDistance):
+          console.log('half-way there')
+          break;
+        case (distance === deimosDistance):
+          console.log('made it to deimos')
+          break;
+        }
+    }
 
   // After the distance check, this function will then check if it's time for a random event
   if (eventTimer % 60 == 0) {
