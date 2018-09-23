@@ -8,7 +8,13 @@ var Missions = sequelize.define(
 
     days: Sequelize.INTEGER,
 
-    teamSize: Sequelize.INTEGER
+    distance: Sequelize.INTEGER,
+
+    oxygen: Sequelize.INTEGER,
+
+    fuel: Sequelize.INTEGER,
+
+    astronautsAlive: Sequelize.INTEGER
   },
   {
     timestamps: true

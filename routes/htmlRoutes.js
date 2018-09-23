@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   app.get("/failed_missions", function(req, res) {
     res.render("missionlist");
-  });
+  });;
 
   app.get("/successful_missions", function(req, res) {
     res.render("missionlist");

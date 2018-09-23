@@ -8,6 +8,8 @@ var Losers = sequelize.define(
 
     days: Sequelize.INTEGER,
 
+    distance: Sequelize.INTEGER,
+
     epitaph: Sequelize.INTEGER
   },
   {

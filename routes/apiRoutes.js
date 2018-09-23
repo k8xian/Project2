@@ -1,4 +1,4 @@
-var db = require("../config/connection.js");
+var db = require("../models");
 
 // Requires for story driven data
 var event = require("../public/data/data.js");

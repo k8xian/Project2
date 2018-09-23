@@ -3,27 +3,27 @@
         <div class="astronautLives">
             <div class="astronaut__block" id="astronautOne">
                 <div class="astronaut__helmet dead"></div>
-                <div class="astronaut__name">John</div>
+                <div class="astronaut__name">{{astronautOne}}</div>
             </div>
             <div class="astronaut__block" id="astronautTwo">
                 <div class="astronaut__helmet dead"></div>
-                <div class="astronaut__name">Paul</div>
+                <div class="astronaut__name">{{astronautTwo}}</div>
             </div>
             <div class="astronaut__block" id="astronautThree">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">George</div>
+                <div class="astronaut__name">{{astronautThree}}</div>
             </div>
             <div class="astronaut__block" id="astronautFour">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">Ringo</div>
+                <div class="astronaut__name">{{astronautFour}}</div>
             </div>
             <div class="astronaut__block" id="astronautFive">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">Fake Paul</div>
+                <div class="astronaut__name">{{astronautFive}}</div>
             </div>
             <div class="astronaut__block" id="astronautSix">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">Astronaut 6</div>
+                <div class="astronaut__name">{{astronautSix}}</div>
             </div>
         </div>
         <div class="oxygen">
@@ -43,7 +43,7 @@
     <div class="update">
         <div class="statusBar__outer">
             <div class="statusBar__inner">
-                <div class="statusBar__text">This is a status update<br>This is line two of a status update.</div>
+                <div class="statusBar__text" id="status">{{status}}</div>
             </div>
         </div>
     </div>
@@ -60,13 +60,13 @@
                 <div class="control__item">Speed:</div>
             </div>
             <div class="controlBar__data">
-                <div class="control__item" id="earthDays">0</div>
-                <div class="control__item" id="marsDays">0</div>
-                <div class="control__item" id="spaceWeather">Muggy</div>
-                <div class="control__item" id="oxygen">99%</div>
-                <div class="control__item" id="fuel">99%</div>
-                <div class="control__item" id="toCheckpoint">360,000</div>
-                <div class="control__item" id="travelled">0</div>
+                <div class="control__item" id="earthDays">{{days}}</div>
+                <div class="control__item" id="marsDays">{{sols}}</div>
+                <div class="control__item" id="spaceWeather">{{spaceWeather}}</div>
+                <div class="control__item" id="oxygen">{{oxygen}}</div>
+                <div class="control__item" id="fuel">{{fuel}}</div>
+                <div class="control__item" id="toCheckpoint">{{toCheckpoint}}</div>
+                <div class="control__item" id="travelled">{{distance}}/div>
                 <div class="control__item">
                     <div class="switch-field gameplay">
                         <input type="radio" id="switch_right" name="switch_2" value="fast" />
