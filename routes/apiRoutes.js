@@ -27,6 +27,10 @@ module.exports = function(app) {
       res.json(newMission);
     });
   });
+
+  app.get("/api/mission", function(req, res) {
+    return res.json(newMission);
+  });
 };
 //   // Delete an example by id
 //   app.delete("/api/examples/:id", function(req, res) {

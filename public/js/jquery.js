@@ -18,13 +18,6 @@ $(document).ready(function() {
     var astronautFour = $("#astronautFour")
       .val()
       .trim();
-    var astronautFive = $("#astronautFive")
-      .val()
-      .trim();
-    var astronautSix = $("#astronautSix")
-      .val()
-      .trim();
-
     var speed = $("input[name=switch_2]")
       .attr("checked", true)
       .val();
