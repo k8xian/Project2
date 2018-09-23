@@ -39,42 +39,33 @@ function increment() {
   eventTimer++;
   dayIncrements++;
 
+//   switch (distance) {
+//     case (distance === moonDistance):
+//         console.log('made it to the moon')
+//         break;
+//     case (distance >= final):
+//         console.log('made it to mars')
+//         break;
+//     case (distance === midpointDistance):
+//         console.log('half-way there')
+//         break;
+//     case (distance === deimosDistance):
+//         console.log('made it to deimos')
+//         break;
+//   }
+
+    if (distance === moonDistance){
+        console.log('you made it to the moon')
+    }
+
     if (speedSelected === fast) {
       distance = (distance % final) + fast;
       $("#travelled").text(distance);
       // switch case for distance variable
-      switch (distance) {
-        case (distance === moonDistance):
-            console.log('made it to the moon')
-            break;
-        case (distance >= final):
-            console.log('made it to mars')
-            break;
-        case (distance === midpointDistance):
-            console.log('half-way there')
-            break;
-        case (distance === deimosDistance):
-            console.log('made it to deimos')
-            break;
-      }
     }
     else {
       distance = (distance % final) + slow;
       $("#travelled").text(distance);
-      switch (distance) {
-        case (distance >= final):
-            console.log('made it to mars')
-            break;
-        case (distance === moonDistance):
-            console.log('made it to the moon')
-            break;
-        case (distance === midpointDistance):
-            console.log('half-way there')
-            break;
-        case (distance === deimosDistance):
-            console.log('made it to deimos')
-            break;
-        }
     }
 
   // After the distance check, this function will then check if it's time for a random event
