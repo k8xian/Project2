@@ -22,11 +22,11 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.post("/api/mission", function(req, res) {
-    db.Mission.create(req.body).then(function(newMission) {
-      res.json(newMission);
-    });
-  });
+  // app.post("/api/mission/", function(req, res) {
+  //   db.Mission.create(req.body).then(function(newMission) {
+  //     res.json(newMission);
+  //   });
+  // });
 
   app.get("/api/mission", function(req, res) {
     return res.json(newMission);
