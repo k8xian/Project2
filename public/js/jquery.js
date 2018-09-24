@@ -72,6 +72,9 @@ $(document).ready(function() {
     speedSelected = 58000;
     $("#switch_left").addClass("checked");
     $("#switch_right").removeClass("checked");
+    $("#status").text(
+      "Your speed has been changed to slow. You will use less fuel and more oxygen."
+    );
     console.log("speed has been updated to " + speedSelected);
   });
 
@@ -80,6 +83,9 @@ $(document).ready(function() {
     speedSelected = 116000;
     $("#switch_left").removeClass("checked");
     $("#switch_right").addClass("checked");
+    $("#status").text(
+      "Your speed has been changed to fast. You will use less fuel and more oxygen."
+    );
     console.log("speed has been updated to " + speedSelected);
   });
 
