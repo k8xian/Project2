@@ -1,6 +1,6 @@
 $(document).ready(function() {
   console.log("I'm ready!");
-  $("#launch").on("click", function(event) {
+  $("#createMission").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("I got clicked!");
@@ -21,34 +21,25 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    var speed;
-    if ($("input[name=switch_2]").val() === "fast") {
-      speed = 116000;
-    } else {
-      speed = 58000;
-    }
-
     var newMission = {
       missionName: missionName,
-      // days: 0,
-      // distance: 0,
-      // oxygen: 100,
-      // fuel: 100,
       astronautOne: astronautOne,
       astronautTwo: astronautTwo,
       astronautThree: astronautThree,
-      astronautFour: astronautFour,
-      speed: speed
+      astronautFour: astronautFour
     };
-
-    $.ajax("/api/mission", {
-      type: "POST",
-      data: newMission
-    }).then(function() {
-      console.log("added a new mission");
-      console.log(newMission);
-      //redirect to new page
-    });
+    if (
+      (missionName, astronautOne, astronautTwo, astronautThree, astronautFour)
+    ) {
+      $.ajax("/api/mission", {
+        type: "POST",
+        data: newMission
+      }).then(function() {
+        console.log("added a new mission");
+        console.log(newMission);
+        //redirect to new page
+      });
+    }
   });
 
   var checkbox = function() {
@@ -84,7 +75,7 @@ $(document).ready(function() {
     $("#switch_left").removeClass("checked");
     $("#switch_right").addClass("checked");
     $("#status").text(
-      "Your speed has been changed to fast. You will use less fuel and more oxygen."
+      "Your speed has been changed to fast. You will use more fuel and less oxygen."
     );
     console.log("speed has been updated to " + speedSelected);
   });
