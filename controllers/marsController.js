@@ -13,15 +13,21 @@ router.get("/mission", function(req, res) {
 });
 
 router.get("/current_missions", function(req, res) {
-  res.render("mission_list");
+  res.render("mission_list", {
+    message: "Current Missions"
+  });
 });
 
 router.get("/failed_missions", function(req, res) {
-  res.render("mission_list");
+  res.render("mission_list", {
+    message: "Failed Missions"
+  });
 });
 
 router.get("/successful_missions", function(req, res) {
-  res.render("mission_list");
+  res.render("mission_list", {
+    message: "Martian Colony Residents"
+  });
 });
 
 router.get("/play", function(req, res) {
