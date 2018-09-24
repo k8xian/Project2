@@ -20,7 +20,7 @@ var missions = {
       cb(res);
     });
   },
-  //integrating updateOne orm to update devoured status by taking data about the name of the burger and devoured status
+  //integrating updateOne orm to update devoured status by taking data about the name of the mission and devoured status
   updateOne: function(objColVals, condition, cb) {
     orm.updateOne("missions", objColVals, condition, function(res) {
       cb(res);

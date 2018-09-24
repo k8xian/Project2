@@ -12,12 +12,6 @@ router.get("/mission", function(req, res) {
   res.render("index");
 });
 
-router.get("/current_missions", function(req, res) {
-  res.render("mission_list", {
-    message: "Current Missions"
-  });
-});
-
 router.get("/failed_missions", function(req, res) {
   res.render("mission_list", {
     message: "Failed Missions"
@@ -34,10 +28,12 @@ router.get("/play", function(req, res) {
   res.render("gameplay");
 });
 
-router.get("/missions", function(req, res) {
+router.get("/current_missions", function(req, res) {
   missions.selectAll("missions", function(data) {
     var hbsObject = {
-      missions: data
+      message: "Current Missions",
+      missions: data,
+      messageTwo: "Click a mission to play"
     };
     console.log(hbsObject);
     //sending data to render in handlebars
@@ -71,7 +67,10 @@ router.get("/play/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   missions.selectOne("missions", condition, function(data) {
     var hbsObject = {
-      missions: data
+      astronautOne: data[0].astronautOne,
+      astronautTwo: data[0].astronautTwo,
+      astronautThree: data[0].astronautThree,
+      astronautFour: data[0].astronautFour
     };
     console.log(hbsObject);
     //sending data to render in handlebars
@@ -81,7 +80,7 @@ router.get("/play/:id", function(req, res) {
 
 //adding a burger based on form data
 router.post("/api/mission", function(req, res) {
-  burger.createOne(
+  missions.createOne(
     [
       "missionName",
       "astronautOne",
