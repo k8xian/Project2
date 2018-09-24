@@ -23,7 +23,7 @@ CREATE TABLE winners
 	missionName varchar(50) NOT NULL,
     astronautsAlive INT,
     daysTravelled INT,
-    victoryMessage varchar(50) NOT NULL,,
+    victoryMessage varchar(50) NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -33,6 +33,6 @@ CREATE TABLE winners
 	missionName varchar(50) NOT NULL,
     daysTravelled INT,
     distance INT,
-    epitaph varchar(50) NOT NULL,,
+    epitaph varchar(50) NOT NULL,
 	PRIMARY KEY (id)
 );
