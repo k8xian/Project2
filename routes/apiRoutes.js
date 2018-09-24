@@ -1,8 +1,7 @@
-var db = require("../models");
 var Missions = require("../models/missions");
 
 // Requires for story driven data
-var data = require("../public/data/data.js");
+// var data = require("../public/data/data.js");
 
 module.exports = function(app) {
   // Get all examples
@@ -20,7 +19,7 @@ module.exports = function(app) {
   // });
 
   app.post("/api/mission/", function(req, res) {
-    Missions.create(req.body.newMission).then(function(newMission) {
+    Missions.create(req.body).then(function(newMission) {
       res.json(newMission);
     });
   });
