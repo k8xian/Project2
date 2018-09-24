@@ -1,4 +1,5 @@
 var db = require("../models");
+var Missions = require("../models/missions");
 
 // Requires for story driven data
 var data = require("../public/data/data.js");
@@ -18,11 +19,11 @@ module.exports = function(app) {
   //   });
   // });
 
-  // app.post("/api/mission/", function(req, res) {
-  //   db.Mission.create(req.body).then(function(newMission) {
-  //     res.json(newMission);
-  //   });
-  // });
+  app.post("/api/mission/", function(req, res) {
+    Missions.create(req.body.newMission).then(function(newMission) {
+      res.json(newMission);
+    });
+  });
 
   app.get("/api/mission", function(req, res) {
     return res.json(newMission);
