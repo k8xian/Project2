@@ -224,6 +224,29 @@ input[type="submit"]{
 
 a.submit-mission{
   width: 300px;
+  padding: 20px 40px;
+  text-align: center;
+  color: var(--color-main);
+  font-size: 1em;
+  border-radius: 5px;
+  font-family: var(--font-main);
+  border: 1px solid white;
+  margin-top: 50px;
+  display: block;
+  float: right;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.submit-mission:hover{
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
+}
+
+a.launch-mission{
+  width: 300px;
   padding: 20px 0;
   text-align: center;
   color: var(--color-dark);
@@ -235,7 +258,7 @@ a.submit-mission{
   cursor: pointer;
   position: fixed;
   bottom: 6vh;
-  left: 10vw;
+  left: 9vw;
   animation-name: launch;
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -253,6 +276,16 @@ a.submit-mission{
   }
 }
 
+.notice {
+  display: block;
+  clear: both;
+  float: right;
+  margin-top: 50px;
+  width: 50%;
+  text-align: right;
+  line-height: 1.2em;
+}
+
 /* radio button */
 .switch-field {
   font-family: var(--font-main);
@@ -263,8 +296,28 @@ a.submit-mission{
 .switch-field.gameplay{
   margin: 0;
   float: left;
-  margin-top: -31px;
+  width: 300px;
 }
+
+.speedChangeButton{
+  float: left;
+  padding: 6px 20px;
+  margin: 0 40px 0 0px;
+  border: 1px solid white;
+  border-radius: 3px;
+  z-index: 20;
+  font-size: .6em;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.speedChangeButton:hover, .speedChangeButton.checked {
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
+}
+
 
 .switch-title {
   font-size: 1.5em !important;
@@ -415,10 +468,11 @@ a.submit-mission{
 
 /* ====Astronaut Blocks===== */
 .astronaut__block{
-  width: 50px;
+  width: 80px;
   height: 70px;
   float: left;
   margin-left: 2px;
+  text-align: center;
 }
 
 .astronaut__name{
@@ -435,6 +489,8 @@ a.submit-mission{
   height: 50px;
   background-size: cover;
   background-repeat: no-repeat;
+  margin: auto;
+  background-position: center;
 }
 
 .astronaut__helmet.dead{
