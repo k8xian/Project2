@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("#notice").hide();
   console.log("I'm ready!");
   $("#createMission").on("click", function(event) {
     // Make sure to preventDefault on a submit event.

@@ -276,6 +276,16 @@ a.launch-mission{
   }
 }
 
+.notice {
+  display: block;
+  clear: both;
+  float: right;
+  margin-top: 50px;
+  width: 50%;
+  text-align: right;
+  line-height: 1.2em;
+}
+
 /* radio button */
 .switch-field {
   font-family: var(--font-main);
@@ -458,10 +468,11 @@ a.launch-mission{
 
 /* ====Astronaut Blocks===== */
 .astronaut__block{
-  width: 50px;
+  width: 80px;
   height: 70px;
   float: left;
   margin-left: 2px;
+  text-align: center;
 }
 
 .astronaut__name{
@@ -478,6 +489,8 @@ a.launch-mission{
   height: 50px;
   background-size: cover;
   background-repeat: no-repeat;
+  margin: auto;
+  background-position: center;
 }
 
 .astronaut__helmet.dead{
