@@ -5,7 +5,7 @@
 [John Cirone](https://github.com/Ciwonie) - 
 [Eric Eissler](https://github.com/eeissler83) - 
 
-**Deployment Link:** https://martianodyssey.herokuapp.com//
+**Deployment Link:** https://martianodyssey.herokuapp.com
 
 **For** Northwestern University's Full Stack Flex Coding Bootcamp
 
