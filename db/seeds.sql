@@ -1,0 +1,2 @@
+
+INSERT INTO missions (missionName, astronautOne, astronautTwo, astronautThree, astronautFour, daysTravelled, distance, oxygen, fuel) VALUES ("First Mission to Mars", "astronautOne", "astronautTwo", "astronautThree", "astronautFour", 0, 0, 100, 100);
