@@ -1,9 +1,11 @@
-<h1>The Martian Trail</h1>
+<h1>The Martian Odyssey</h1>
 <hr class="title__page">
 <h2>Current Missions</h2>
-<a class="title__option" href="/mission">Start a New Mission</a>
-<a class="title__option" href="/current_missions">Resume a Mission</a>
-<a class="title__option" href="/failed_missions">See Failed Missions</a>
-<a class="title__option" href="/successful_misssions">See Succesful Missions</a>
-<hr class="title__page bottom">
-<h3>Which would you like to do?</h3>
+<ul id="example-list" class="list-group">
+    {{#each mission}}
+    <li data-id="{{this.id}}" class="list-group-item">
+        <a href="play/{{this.missionName}}">{{this.missionName}}</a>
+    </li>
+    {{/each}}
+</ul>
+<h3>Which would you like to play?</h3>
