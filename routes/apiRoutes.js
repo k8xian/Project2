@@ -18,7 +18,7 @@ module.exports = function(app) {
   //   });
   // });
 
-  app.post("/api/mission/", function(req, res) {
+  app.post("/api/mission", function(req, res) {
     Missions.create(req.body).then(function(newMission) {
       res.json(newMission);
     });
