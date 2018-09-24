@@ -8,16 +8,6 @@ router.get("/", function(req, res) {
   res.render("landing");
 });
 
-router.get("/mission", function(req, res) {
-  res.render("index");
-});
-
-router.get("/current_missions", function(req, res) {
-  res.render("mission_list", {
-    message: "Current Missions"
-  });
-});
-
 router.get("/failed_missions", function(req, res) {
   res.render("mission_list", {
     message: "Failed Missions"
@@ -34,10 +24,12 @@ router.get("/play", function(req, res) {
   res.render("gameplay");
 });
 
-router.get("/missions", function(req, res) {
+router.get("/current_missions", function(req, res) {
   missions.selectAll("missions", function(data) {
     var hbsObject = {
-      missions: data
+      message: "Current Missions",
+      missions: data,
+      messageTwo: "Click a mission to play"
     };
     console.log(hbsObject);
     //sending data to render in handlebars
