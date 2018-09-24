@@ -1,4 +1,5 @@
-# Get Happy (Hour)
+# Martian Odyssey
+
 **Collaborators:** 
 [Kate Christian](https://github.com/k8xian) - 
 [John Cirone](https://github.com/Ciwonie) - 
