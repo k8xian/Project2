@@ -4,19 +4,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -24,19 +24,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -44,19 +44,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -64,19 +64,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -84,19 +84,19 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -104,42 +104,43 @@ var event = [
     image: "LINK",
     fact: "I like Turtles",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   }
 ];
 
 var checkpoint = [
   {
-    name: "checkpoint one",
+    name: "checkpoint Moon",
     image: "url",
-    fact: "stuff goes here",
+    fact: "The Moon (or Luna) is the Earth's only natural satellite and was formed 4.6 billion years ago around some 30–50 million years after the formation of the solar system. The Moon is in synchronous rotation with Earth meaning the same side is always facing the Earth.",
+    statement: "You have arrived to the Moon, the first stop on a long voyage. You get a signal from the dark side of the moon. Choose from the following options:",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "You go and investigate and land on the dark side of the moon.",
+      "optionB": "You freak and say, 'there's nobody on the Moon, f that noise, I am out!'",
+      "optionC": "You radio back to NASA and explain there is some strange signal coming from the dark side of the Moon, and ask what to do."
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "You land on the dark side of the Moon and are greeted Moon Men who are friendly and give you provisions and refuel your oxygen and fuel. ",
+      "resultB": "You continue on your current course and never look back.",
+      "resultC": "NASA is shocked and does not know what to do, this scares you so bad that you die of disentary. Mission over!"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -147,19 +148,19 @@ var checkpoint = [
     image: "url",
     fact: "stuff goes here",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   },
   {
@@ -167,22 +168,24 @@ var checkpoint = [
     image: "url",
     fact: "stuff goes here",
     option: {
-      "option-a": "option a",
-      "option-b": "option b",
-      "option-c": "option c"
+      "optionA": "option a",
+      "optionB": "option b",
+      "optionC": "option c"
     },
     result: {
-      "result-a": "result a",
-      "result-b": "result b",
-      "result-c": "result c"
+      "resultA": "result a",
+      "resultB": "result b",
+      "resultC": "result c"
     },
     multiplier: {
-      "multiplier-a": "math-a",
-      "multiplier-b": "math-b",
-      "multiplier-c": "math-c"
+      "multiplierA": "math-a",
+      "multiplierB": "math-b",
+      "multiplierC": "math-c"
     }
   }
 ];
 
-module.exports = event;
-module.exports = checkpoint;
+module.exports = {
+  event,
+  checkpoint
+}
