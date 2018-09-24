@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "oregon trail, but in space!",
   "main": "server.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
