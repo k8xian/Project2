@@ -1,48 +1,25 @@
-require("dotenv").config();
-var express = require("express");
-var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 8080;
+const app = express();
+const exphbs = require("express-handlebars");
 
-var db = require("./config/connection.js");
-
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//setting public route for css and frontend jquery and images
 app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+//making the json readable
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//getting handlebars working
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+//integrating the routes set by the controllers
+const routes = require("./controllers/marsController.js");
+app.use(routes);
 
-var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+//making it all go
+app.listen(PORT, function() {
+  console.log("Server listening on: http://localhost:" + PORT);
 });
-
-module.exports = app;
