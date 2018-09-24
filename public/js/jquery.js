@@ -29,12 +29,11 @@ $(document).ready(function() {
     }
 
     var newMission = {
-      routeName: missionName,
       missionName: missionName,
-      days: 0,
-      distance: 0,
-      oxygen: 100,
-      fuel: 100,
+      // days: 0,
+      // distance: 0,
+      // oxygen: 100,
+      // fuel: 100,
       astronautOne: astronautOne,
       astronautTwo: astronautTwo,
       astronautThree: astronautThree,
@@ -72,3 +71,34 @@ $(document).ready(function() {
 
   //ajax to somehow pass this back to the API
 });
+
+var kIndex;
+var url = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json";
+
+var weatherReport = [
+  "cold front",
+  "nippy",
+  "muggy",
+  "wear shorts",
+  "sunny w/ a high of uv",
+  "the electron shuffle",
+  "danger, stay indoors",
+  "seriously, who popped a sun spot",
+  "direct eye contact will cause death"
+];
+
+fetch(url)
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    // Work with JSON data here
+    var spaceWeather = data[1];
+    kIndex = spaceWeather[1];
+    console.log(kIndex);
+    $("#spaceWeather").text(weatherReport[kIndex]);
+  })
+  .catch(err => {
+    // Do something for an error here
+    throw err;
+  });

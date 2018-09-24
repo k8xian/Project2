@@ -2,28 +2,20 @@
     <div class="status">
         <div class="astronautLives">
             <div class="astronaut__block" id="astronautOne">
-                <div class="astronaut__helmet dead"></div>
-                <div class="astronaut__name">{{astronautOne}}</div>
+                <div class="astronaut__helmet"></div>
+                <div class="astronaut__name">{{this.astronautOne}}</div>
             </div>
             <div class="astronaut__block" id="astronautTwo">
-                <div class="astronaut__helmet dead"></div>
-                <div class="astronaut__name">{{astronautTwo}}</div>
+                <div class="astronaut__helmet"></div>
+                <div class="astronaut__name">{{this.astronautTwo}}</div>
             </div>
             <div class="astronaut__block" id="astronautThree">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">{{astronautThree}}</div>
+                <div class="astronaut__name">{{this.astronautThree}}</div>
             </div>
             <div class="astronaut__block" id="astronautFour">
                 <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">{{astronautFour}}</div>
-            </div>
-            <div class="astronaut__block" id="astronautFive">
-                <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">{{astronautFive}}</div>
-            </div>
-            <div class="astronaut__block" id="astronautSix">
-                <div class="astronaut__helmet"></div>
-                <div class="astronaut__name">{{astronautSix}}</div>
+                <div class="astronaut__name">{{this.astronautFour}}</div>
             </div>
         </div>
         <div class="oxygen">
@@ -66,7 +58,7 @@
                 <div class="control__item" id="oxygen">{{oxygen}}</div>
                 <div class="control__item" id="fuel">{{fuel}}</div>
                 <div class="control__item" id="toCheckpoint">{{toCheckpoint}}</div>
-                <div class="control__item" id="travelled">{{distance}}/div>
+                <div class="control__item" id="travelled">{{distance}}</div>
                 <div class="control__item">
                     <div class="switch-field gameplay">
                         <input type="radio" id="switch_right" name="switch_2" value="fast" />
@@ -95,23 +87,4 @@
 
 {{!-- Fetch to retrieve space weather data --}}
 <script type="text/javascript">
-    var kIndex;
-    var url = 'https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json';
-
-    var weatherReport = ['cold front', 'nippy', 'muggy', 'wear shorts', 'sunny w/ a high of uv', 'the electron shuffle', 'danger, stay indoors', 'seriously, who popped a sun spot', 'direct eye contact will cause death']
-
-    fetch(url)
-        .then(response => {
-            return response.json();
-        }).then(data => {
-            // Work with JSON data here
-            var spaceWeather = data[1];
-            kIndex = spaceWeather[1];
-            console.log(kIndex);
-            $('#spaceWeather').text(weatherReport[kIndex]);
-        }).catch(err => {
-            // Do something for an error here
-            throw err
-        });
-
 </script>
