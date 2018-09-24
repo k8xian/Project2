@@ -2,10 +2,32 @@
 const express = require("express");
 const router = express.Router();
 const missions = require("../models/missions.js");
-// const winners = require("../models/winners.js");
-// const losers = require("../models/losers.js");
 
-//setting / to display all data
+//showing other stuff
+router.get("/", function(req, res) {
+  res.render("landing");
+});
+
+router.get("/mission", function(req, res) {
+  res.render("index");
+});
+
+router.get("/current_missions", function(req, res) {
+  res.render("mission_list");
+});
+
+router.get("/failed_missions", function(req, res) {
+  res.render("mission_list");
+});
+
+router.get("/successful_missions", function(req, res) {
+  res.render("mission_list");
+});
+
+router.get("/play", function(req, res) {
+  res.render("gameplay");
+});
+
 router.get("/missions", function(req, res) {
   missions.selectAll("missions", function(data) {
     var hbsObject = {
