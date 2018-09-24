@@ -1,22 +1,11 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../config/connection.js");
-
-var Losers = sequelize.define(
-  "loser",
-  {
-    missionName: Sequelize.STRING,
-
-    days: Sequelize.INTEGER,
-
-    distance: Sequelize.INTEGER,
-
-    epitaph: Sequelize.INTEGER
-  },
-  {
-    timestamps: true
-  }
-);
-
-Losers.sync();
-// Makes the Character Model available for other files (will also create a table)
-module.exports = Losers;
+module.exports = (sequelize, DataTypes) => {
+  var Losers = sequelize.define("Losers", {
+    missionName: DataTypes.STRING,
+    message: DataTypes.STRING,
+    days: DataTypes.INTEGER,
+    fuel: DataTypes.INTEGER,
+    distance: DataTypes.INTEGER,
+    days: DataTypes.INTEGER,
+  });
+  return Losers;
+};
