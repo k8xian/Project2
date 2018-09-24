@@ -53,7 +53,6 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
 // module.exports = sequelize;
 // module.exports = Winners;
 // module.exports = Losers;
