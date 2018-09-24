@@ -51,54 +51,67 @@ $(document).ready(function() {
     });
   });
 
-  // $(".gameplay").on("submit", function(event) {
-  //   event.preventDefault();
-  //   var speed = $("input[name=switch_2]")
-  //     .attr("checked", true)
-  //     .val();
-  //   var newMission = {
-  //     speed: speed
-  //   };
+  var checkbox = function() {
+    console.log("starting speed is " + speedSelected);
 
-  //   $.ajax("/api/mission", {
-  //     type: "POST",
-  //     data: newMission
-  //   }).then(function() {
-  //     console.log("changed speed");
-  //     //redirect to new page
-  //   });
-  // });
+    if (speedSelected === 116000) {
+      $("#switch_right").addClass("checked");
+      $("#switch_left").removeClass("checked");
+    }
 
-  //ajax to somehow pass this back to the API
-});
+    if (speedSelected === 58000) {
+      $("#switch_right").removeClass("checked");
+      $("#switch_left").addClass("checked");
+    }
+  };
 
-var kIndex;
-var url = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json";
+  checkbox();
 
-var weatherReport = [
-  "cold front",
-  "nippy",
-  "muggy",
-  "wear shorts",
-  "sunny w/ a high of uv",
-  "the electron shuffle",
-  "danger, stay indoors",
-  "seriously, who popped a sun spot",
-  "direct eye contact will cause death"
-];
-
-fetch(url)
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    // Work with JSON data here
-    var spaceWeather = data[1];
-    kIndex = spaceWeather[1];
-    console.log(kIndex);
-    $("#spaceWeather").text(weatherReport[kIndex]);
-  })
-  .catch(err => {
-    // Do something for an error here
-    throw err;
+  $("#switch_left").on("click", function(event) {
+    event.preventDefault();
+    speedSelected = 58000;
+    $("#switch_left").addClass("checked");
+    $("#switch_right").removeClass("checked");
+    console.log("speed has been updated to " + speedSelected);
   });
+
+  $("#switch_right").on("click", function(event) {
+    event.preventDefault();
+    speedSelected = 116000;
+    $("#switch_left").removeClass("checked");
+    $("#switch_right").addClass("checked");
+    console.log("speed has been updated to " + speedSelected);
+  });
+
+  var kIndex;
+  var url =
+    "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json";
+
+  var weatherReport = [
+    "cold front",
+    "nippy",
+    "muggy",
+    "wear shorts",
+    "sunny w/ a high of uv",
+    "the electron shuffle",
+    "danger, stay indoors",
+    "seriously, who popped a sun spot",
+    "direct eye contact will cause death"
+  ];
+
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      // Work with JSON data here
+      var spaceWeather = data[1];
+      kIndex = spaceWeather[1];
+      console.log(kIndex);
+      $("#spaceWeather").text(weatherReport[kIndex]);
+    })
+    .catch(err => {
+      // Do something for an error here
+      throw err;
+    });
+});

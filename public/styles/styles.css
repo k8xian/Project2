@@ -263,8 +263,28 @@ a.submit-mission{
 .switch-field.gameplay{
   margin: 0;
   float: left;
-  margin-top: -31px;
+  width: 300px;
 }
+
+.speedChangeButton{
+  float: left;
+  padding: 6px 20px;
+  margin: 0 40px 0 0px;
+  border: 1px solid white;
+  border-radius: 3px;
+  z-index: 20;
+  font-size: .6em;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.speedChangeButton:hover, .speedChangeButton.checked {
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
+}
+
 
 .switch-title {
   font-size: 1.5em !important;
