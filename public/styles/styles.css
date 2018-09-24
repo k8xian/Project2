@@ -222,6 +222,27 @@ input[type="submit"]{
   animation-direction: alternate;
 }
 
+a.submit-mission{
+  width: 300px;
+  padding: 20px 0;
+  text-align: center;
+  color: var(--color-dark);
+  font-size: 1em;
+  border-radius: 5px;
+  font-family: var(--font-main);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  position: fixed;
+  bottom: 6vh;
+  left: 10vw;
+  animation-name: launch;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  text-decoration: none;
+}
+
 @keyframes launch {
   from {
     background-color: var(--color-main);
