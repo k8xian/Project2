@@ -43,7 +43,7 @@ function increment() {
       distance = (distance % final) + fast;
       $("#travelled").text(distance);
       // switch case for distance variable
-      switch (distance) {
+      switch (true) {
         case (distance === moonDistance):
             console.log('made it to the moon')
             break;
@@ -61,7 +61,7 @@ function increment() {
     else {
       distance = (distance % final) + slow;
       $("#travelled").text(distance);
-      switch (distance) {
+      switch (true) {
         case (distance >= final):
             console.log('made it to mars')
             break;
