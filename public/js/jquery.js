@@ -112,4 +112,22 @@ $(document).ready(function() {
       // Do something for an error here
       throw err;
     });
+
+  //========= SHOWING AND HIDING THE EVENT MODAL =============//
+  var factsContainer = $(".modal__facts");
+  var optionsContainer = $(".modal__options");
+
+  factsContainer.hide();
+  optionsContainer.hide();
+
+  //========= SEND THE FACT TEXT HERE =============//
+  var facts = $("#eventFact");
+
+  //========= SEND THE STATUS TEXT =============//
+  var status = $("#status");
+
+  //========= SEND THE OPTIONS TEXTS HERE =============//
+  var optionA = $("#optionA");
+  var optionB = $("#optionB");
+  var optionC = $("#optionC");
 });

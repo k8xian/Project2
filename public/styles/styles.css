@@ -389,6 +389,64 @@ a.launch-mission{
 
 }
 
+
+.modal__facts {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: rgba(0,0,0,.9);
+  z-index: 20;
+  box-shadow: 0 -3px 3px rgba(0,0,0,.54);
+  border-radius: 15px 15px 0 0;
+  border: 3px solid white;
+  border-bottom: 0;
+}
+
+.event__fact{
+  margin: 50px;
+  line-height: 1.6em;
+  font-size: .8em;
+  text-align: justify;
+}
+
+.modal__options{
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  background-color: rgba(0,0,0,.9);
+  z-index: 20;
+  margin-bottom: 40px;
+  box-shadow: 0 3px 3px rgba(0,0,0,.54);
+  border-radius: 0 0 15px 15px;
+  border: 3px solid white;
+  border-top: 0;
+
+}
+
+a.modal__choice {
+  width: 50%;
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  line-height: 1.6em;
+  transition-property: color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  border-radius: 7px;
+  text-decoration: none;
+  color: var(--color-main);
+}
+
+
+a.modal__choice:hover{
+color: var(--color-highlight);
+}
+a.modal__choice:visited, .modal__choice:focus{
+text-decoration: none;
+  }
+
 .update{
   grid-area: update;
   background-color: var(--color-light);
@@ -438,6 +496,8 @@ a.launch-mission{
   height: calc(100% - 40px);
   margin: 20px;
   line-height: 1.5em;
+  font-size: .8em;
+  color: var(--color-highlight);
 }
 
 .controlBar__content{
@@ -548,7 +608,7 @@ http://www.Mkrtchyan.zz.mu
     to {background-position:10000px 0;}
 }
 
-.stars, .twinkling, .clouds {
+.stars, .twinkling, {
   position:absolute;
   top:0;
   left:0;
@@ -573,17 +633,6 @@ http://www.Mkrtchyan.zz.mu
   -o-animation:move-twink-back 200s linear infinite;
   -webkit-animation:move-twink-back 200s linear infinite;
   animation:move-twink-back 200s linear infinite;
-}
-
-.clouds{
-  background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
-  z-index:0;
-
-  -moz-animation:move-clouds-back 200s linear infinite;
-  -ms-animation:move-clouds-back 200s linear infinite;
-  -o-animation:move-clouds-back 200s linear infinite;
-  -webkit-animation:move-clouds-back 200s linear infinite;
-  animation:move-clouds-back 200s linear infinite;
 }
 
 /* Minigame Styles */

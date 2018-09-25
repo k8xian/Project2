@@ -9,4 +9,4 @@
 
 **For** Northwestern University's Full Stack Flex Coding Bootcamp
 
-*This web-app is an homage to the 1997 game Oregon Trail, but set in space on a mission to Mars
+* This web-app is an homage to the 1997 game Oregon Trail, but set in space on a mission to Mars
