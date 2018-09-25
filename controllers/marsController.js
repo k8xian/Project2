@@ -78,7 +78,38 @@ router.get("/play/:id", function(req, res) {
   });
 });
 
-//adding a burger based on form data
+router.get("/win/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  missions.selectOne("winners", condition, function(data) {
+    var hbsObject = {
+      message: "You won!",
+      id: req.params.id,
+      missionName: "Mission Name: " + data[0].missionName,
+      days: "Days to Mars: " + data[0].daysTravelled,
+      astronautsAlive: "Astronauts alive: " + data[0].astronautsAlive,
+      messageTwo: "Enter your victory message",
+      winloss: "Win"
+    };
+    res.render("winloss", hbsObject);
+  });
+});
+
+router.get("/loss/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  missions.selectOne("losers", condition, function(data) {
+    var hbsObject = {
+      message: "Your entire team died of space dysentary",
+      id: req.params.id,
+      missionName: "Mission Name: " + data[0].missionName,
+      distance: "Distance Traveled: " + data[0].distance + " km",
+      messageTwo: "Enter your epitaph",
+      winloss: "Loss"
+    };
+    res.render("winloss", hbsObject);
+  });
+});
+
+//adding a mission based on form data
 router.post("/api/mission", function(req, res) {
   missions.createOne(
     [
@@ -109,25 +140,43 @@ router.post("/api/mission", function(req, res) {
   );
 });
 
-// router.put("/api/burgers/:id", function(req, res) {
-//   var condition = "id = " + req.params.id;
+router.put("/api/winners", function(req, res) {
+  var condition = "id = " + req.body.id;
+  var table = "winners";
+  mission.updateOne(
+    table,
+    {
+      victoryMessage: req.body.message
+    },
+    condition,
+    function(result) {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    }
+  );
+});
 
-//   console.log("condition", condition);
-
-//   burger.updateOne(
-//     {
-//       devoured: req.body.devoured
-//     },
-//     condition,
-//     function(result) {
-//       if (result.changedRows === 0) {
-//         return res.status(404).end();
-//       } else {
-//         res.status(200).end();
-//       }
-//     }
-//   );
-// });
+router.put("/api/losers", function(req, res) {
+  var condition = "id = " + req.body.id;
+  var table = "losers";
+  mission.updateOne(
+    table,
+    {
+      epitaph: req.body.message
+    },
+    condition,
+    function(result) {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    }
+  );
+});
 
 // //deleting burgers, because we can
 // router.delete("/api/burgers/:id", function(req, res) {

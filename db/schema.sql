@@ -17,7 +17,8 @@ CREATE TABLE missions
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE losers
+DROP TABLE IF EXISTS winner;
+CREATE TABLE winners
 (
 	id INT NOT NULL AUTO_INCREMENT,
 	missionName varchar(50) NOT NULL,
@@ -27,7 +28,8 @@ CREATE TABLE losers
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE winners
+DROP TABLE IF EXISTS loser;
+CREATE TABLE losers
 (
 	id INT NOT NULL AUTO_INCREMENT,
 	missionName varchar(50) NOT NULL,
