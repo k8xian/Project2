@@ -42,6 +42,11 @@ var losingScreen = function() {
   location.replace(`/loss/${missionId}`);
 };
 
+var winningScreen = function() {
+  var missionId = $("#missionNo").attr("data-id");
+  location.replace(`/win/${missionId}`);
+};
+
 //function to kill an astronaut
 var killAstronaut = function() {
   if (!astOneDead) {
