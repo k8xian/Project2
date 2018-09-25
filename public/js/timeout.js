@@ -26,7 +26,7 @@ var deimosDistance = 46400000;
 
 var distanceAway = 348000;
 
-// speed selection - initally fast 
+// speed selection - initally fast
 // === BUTTONS NOT WORKING AS INTENDED ===//
 var speedSelected = fast;
 // $('#switch_right').click(function() {
@@ -38,7 +38,6 @@ var speedSelected = fast;
 //     speedSelected = slow;
 //     console.log(speedSelected);
 // })
-
 
 // timeout function for checkpoint and event triggers
 var eventTimer = 0;
@@ -92,9 +91,9 @@ function increment() {
   eventTimer++;
   dayIncrements++;
   distanceAway = distanceAway - fast;
-  $('#toCheckpoint').text(distanceAway);
+  $("#toCheckpoint").text(distanceAway);
 
-  if (speedSelected = fast) {
+  if ((speedSelected = fast)) {
     distance = (distance % final) + fast;
     $("#travelled").text(distance);
     $("#progress").width((distance / 58000000) * 250);
@@ -119,36 +118,36 @@ function increment() {
     case distance === final:
       clearInterval();
       break;
-    // case ((eventTimer % 60) === 0):
-    //   clearInterval();
-    //   randomEvent();
-    //   eventTimer = 0;
-    //   break;
+      // case ((eventTimer % 60) === 0):
+      //   clearInterval();
+      //   randomEvent();
+      //   eventTimer = 0;
+      //   break;
     }
   } else {
     distance = (distance % final) + slow;
     $("#travelled").text(distance);
     $("#progress").width((distance / 58000000) * 250);
     switch (true) {
-        case distance === moonDistance:
-          clearInterval();
-          checkpointOne();
-          break;
-        case distance === midpointDistance:
-          clearInterval();
-          checkpointTwo();
-          break;
-        case distance === deimosDistance:
-          clearInterval();
-          clearInterval();
-          checkpointThree();
-          break;
-        case distance === final:
-          clearInterval();
-          clearInterval();
-          break;
+      case distance === moonDistance:
+        clearInterval();
+      checkpointOne();
+        break;
+    case distance === midpointDistance:
+      clearInterval();
+        checkpointTwo();
+        break;
+    case distance === deimosDistance:
+      clearInterval();
+      clearInterval();
+        checkpointThree();
+      break;
+    case distance === final:
+        clearInterval();
+        clearInterval();
+        break;
     }
-    }
+  }
 
   // After the distance check, this function will then check if it's time for a random event
   //   if (eventTimer % 60 === 0) {
@@ -164,11 +163,11 @@ function increment() {
     $("#marsDays").text(sols.toFixed(2));
     oxygen = oxygen - 2;
     fuel = fuel - 2;
-    $('#oxygen').text(oxygen);
-    $('#fuel').text(fuel);
+    $("#oxygen").text(oxygen);
+    $("#fuel").text(fuel);
 
     if (oxygen === 0 || fuel === 0) {
-        console.log('Game Over')
+      console.log("Game Over");
     }
     console.log("earth days: " + days);
     console.log("sols: " + sols);
@@ -455,32 +454,32 @@ function randomEvent() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedEvent.fact);;
-  statement.text(selectedEvent.statement);;
-  optionA.text(selectedEvent.option.optionA);;
-  optionB.text(selectedEvent.option.optionB);;
-  optionC.text(selectedEvent.option.optionC);;
+  facts.text(selectedEvent.fact);
+  statement.text(selectedEvent.statement);
+  optionA.text(selectedEvent.option.optionA);
+  optionB.text(selectedEvent.option.optionB);
+  optionC.text(selectedEvent.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedEvent.result.resultA);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedEvent.result.resultB);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedEvent.result.resultC);
     interval = setInterval(increment, 1000);
-  });;
+  });
 }
 
 function checkpointOne() {
@@ -497,11 +496,11 @@ function checkpointOne() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedCheckpoint.fact);;
-  statement.text(selectedCheckpoint.statement);;
-  optionA.text(selectedCheckpoint.option.optionA);;
-  optionB.text(selectedCheckpoint.option.optionB);;
-  optionC.text(selectedCheckpoint.option.optionC);;
+  facts.text(selectedCheckpoint.fact);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
@@ -530,10 +529,10 @@ function checkpointOne() {
     interval = setInterval(increment, 1000);
   });
 
-  console.log(selectedCheckpoint);;
+  console.log(selectedCheckpoint);
   //temporary fix to speedSelected bug - assigned it again to fast
   //speedSelected = fast;
-  distanceAway = 28652000;;
+  distanceAway = 28652000;
 }
 
 function checkpointTwo() {
@@ -550,36 +549,35 @@ function checkpointTwo() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedCheckpoint.fact);;
-  statement.text(selectedCheckpoint.statement);;
-  optionA.text(selectedCheckpoint.option.optionA);;
-  optionB.text(selectedCheckpoint.option.optionB);;
-  optionC.text(selectedCheckpoint.option.optionC);;
+  facts.text(selectedCheckpoint.fact);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultB);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   distanceAway = 17400000;
-  console.log(selectedCheckpoint);;
-
+  console.log(selectedCheckpoint);
 }
 
 function checkpointThree() {
@@ -597,33 +595,33 @@ function checkpointThree() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedCheckpoint.fact);;
-  statement.text(selectedCheckpoint.statement);;
-  optionA.text(selectedCheckpoint.option.optionA);;
-  optionB.text(selectedCheckpoint.option.optionB);;
-  optionC.text(selectedCheckpoint.option.optionC);;
+  facts.text(selectedCheckpoint.fact);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultB);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   distanceAway = 11600000;
-  console.log(selectedCheckpoint);;
+  console.log(selectedCheckpoint);
 }
