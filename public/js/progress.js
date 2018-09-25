@@ -15,7 +15,7 @@ svg
   .attr("fill", "rgba(0,0,0,.54)")
   .attr("height", 15)
   .attr("width", function() {
-    return segmentWidth * states.length;
+    return 500;
   })
   .attr("x", 0);
 
@@ -35,7 +35,6 @@ window.setInterval(function() {
     .duration(1000)
     .attr("width", function() {
       var sofar = distance;
-      console.log("distance so far is:" + sofar);
       var trip = 58000000;
       return (sofar / trip) * 500;
     });

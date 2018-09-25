@@ -11,16 +11,33 @@ var dayIncrements = 0;
 var days = 0;
 var sols = 0;
 
+// resources
+var oxygen = 100;
+var fuel = 100;
+
 // speeds --- original fast speed is 58,000 and original slow is 29,000. The following values represent double speeds
-var fast = 116000;
-var slow = 58000;
+var fast = 14500;
+var slow = 11600;
 
 // rounded distances to make neat divisibilities with speed
 var moonDistance = 348000;
 var midpointDistance = 29000000;
-var deimosDistance = 57420000;
+var deimosDistance = 46400000;
 
-var speedSelected = fast; // or slow
+var distanceAway = 348000;
+
+// speed selection - initally fast
+// === BUTTONS NOT WORKING AS INTENDED ===//
+var speedSelected = fast;
+// $('#switch_right').click(function() {
+//     speedSelected = fast;
+//     console.log(speedSelected);
+// })
+
+// $('#switch_left').click(function() {
+//     speedSelected = slow;
+//     console.log(speedSelected);
+// })
 
 // timeout function for checkpoint and event triggers
 var eventTimer = 0;
@@ -73,33 +90,39 @@ var killAstronaut = function() {
 function increment() {
   eventTimer++;
   dayIncrements++;
+  distanceAway = distanceAway - fast;
+  $("#toCheckpoint").text(distanceAway);
 
-  if (speedSelected === fast) {
+  if ((speedSelected = fast)) {
     distance = (distance % final) + fast;
     $("#travelled").text(distance);
     $("#progress").width((distance / 58000000) * 250);
     // switch case for distance variable
     switch (true) {
-    case distance === moonDistance:
-      console.log("made it to the moon");
-      clearInterval();
-      checkpointOne();
-      break;
-    case distance === midpointDistance:
-      console.log("half-way there");
-      checkpointTwo();
-      $(".checkpointOne").hide();
-      $(".checkpointTwo").show();
-      break;
-    case distance === deimosDistance:
-      console.log("made it to deimos");
-      checkpointThree();
-      $(".checkpointTwo").hide();
-      $(".checkpointThree").show();
-      break;
-    case distance >= final:
-      console.log("made it to mars");
-      break;
+      case distance === moonDistance:
+        clearInterval();
+        checkpointOne();
+        break;
+      case distance === midpointDistance:
+        clearInterval();
+        checkpointTwo();
+        $(".checkpointOne").hide();
+        $(".checkpointTwo").show();
+        break;
+      case distance === deimosDistance:
+        clearInterval();
+        checkpointThree();
+        $(".checkpointTwo").hide();
+        $(".checkpointThree").show();
+        break;
+      case distance === final:
+        clearInterval();
+        break;
+      // case ((eventTimer % 60) === 0):
+      //   clearInterval();
+      //   randomEvent();
+      //   eventTimer = 0;
+      //   break;
     }
   } else {
     distance = (distance % final) + slow;
@@ -107,34 +130,45 @@ function increment() {
     $("#progress").width((distance / 58000000) * 250);
     switch (true) {
     case distance === moonDistance:
-      console.log("made it to the moon");
-      checkpointOne();
+      clearInterval();
+        checkpointOne();
       break;
-    case distance === midpointDistance:
-      console.log("half-way there");
+      case distance === midpointDistance:
+        clearInterval();
       checkpointTwo();
       break;
-    case distance === deimosDistance:
-      console.log("made it to deimos");
+      case distance === deimosDistance:
+        clearInterval();
+        clearInterval();
       checkpointThree();
-      break;
-    case distance >= final:
-      console.log("made it to mars");
+        break;
+      case distance === final:
+      clearInterval();
+      clearInterval();
       break;
     }
   }
 
   // After the distance check, this function will then check if it's time for a random event
-  if (eventTimer % 60 === 0) {
-    console.log("random event was triggered");
-    randomEvent();
-  }
+  //   if (eventTimer % 60 === 0) {
+  //     console.log("random event was triggered");
+  //     clearInterval();
+  //     randomEvent();
+  //   }
 
   if (dayIncrements % 12 === 0) {
     days++;
     sols = days * 1.0114;
     $("#earthDays").text(days);
     $("#marsDays").text(sols.toFixed(2));
+    oxygen = oxygen - 2;
+    fuel = fuel - 2;
+    $("#oxygen").text(oxygen);
+    $("#fuel").text(fuel);
+
+    if (oxygen === 0 || fuel === 0) {
+      console.log("Game Over");
+    }
     console.log("earth days: " + days);
     console.log("sols: " + sols);
   }
@@ -417,7 +451,35 @@ function randomEvent() {
   };
 
   console.log(selectedEvent);
-  return selectedEvent;
+  factsContainer.show();
+  optionsContainer.show();
+
+  facts.text(selectedEvent.fact);
+  statement.text(selectedEvent.statement);
+  optionA.text(selectedEvent.option.optionA);
+  optionB.text(selectedEvent.option.optionB);
+  optionC.text(selectedEvent.option.optionC);
+
+  optionA.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultA);
+    interval = setInterval(increment, 1000);
+  });
+
+  optionB.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultB);
+    interval = setInterval(increment, 1000);
+  });
+
+  optionC.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultC);
+    interval = setInterval(increment, 1000);
+  });
 }
 
 function checkpointOne() {
@@ -435,10 +497,63 @@ function checkpointOne() {
   optionsContainer.show();
 
   facts.text(selectedCheckpoint.fact);
-  statement.append(selectedCheckpoint.statement);
-  optionA.append(selectedCheckpoint.option.optionA);
-  optionB.append(selectedCheckpoint.option.optionB);
-  optionC.append(selectedCheckpoint.option.optionC);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
+
+  optionA.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultA);
+    fast = 116000;
+    slow = 58000;
+    interval = setInterval(increment, 1000);
+  });
+
+  optionB.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultB);
+    fast = 116000;
+    slow = 58000;
+    interval = setInterval(increment, 1000);
+  });
+
+  optionC.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultC);
+    fast = 116000;
+    slow = 58000;
+    interval = setInterval(increment, 1000);
+  });
+
+  console.log(selectedCheckpoint);
+  //temporary fix to speedSelected bug - assigned it again to fast
+  //speedSelected = fast;
+  distanceAway = 28652000;
+}
+
+function checkpointTwo() {
+  var selectedCheckpoint = {
+    name: checkpoint[1].name,
+    image: checkpoint[1].image,
+    fact: checkpoint[1].fact,
+    option: checkpoint[1].option,
+    statement: checkpoint[1].statement,
+    result: checkpoint[1].result,
+    multiplier: checkpoint[1].multiplier
+  };
+  console.log(selectedCheckpoint);
+  factsContainer.show();
+  optionsContainer.show();
+
+  facts.text(selectedCheckpoint.fact);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
@@ -461,21 +576,8 @@ function checkpointOne() {
     interval = setInterval(increment, 1000);
   });
 
+  distanceAway = 17400000;
   console.log(selectedCheckpoint);
-}
-
-function checkpointTwo() {
-  var selectedCheckpoint = {
-    name: checkpoint[1].name,
-    image: checkpoint[1].image,
-    fact: checkpoint[1].fact,
-    option: checkpoint[1].option,
-    statement: checkpoint[1].statement,
-    result: checkpoint[1].result,
-    multiplier: checkpoint[1].multiplier
-  };
-  console.log(selectedCheckpoint);
-  return selectedCheckpoint;
 }
 
 function checkpointThree() {
@@ -489,5 +591,37 @@ function checkpointThree() {
     multiplier: checkpoint[2].multiplier
   };
   console.log(selectedCheckpoint);
-  return selectedCheckpoint;
+  clearInterval();
+  factsContainer.show();
+  optionsContainer.show();
+
+  facts.text(selectedCheckpoint.fact);
+  statement.text(selectedCheckpoint.statement);
+  optionA.text(selectedCheckpoint.option.optionA);
+  optionB.text(selectedCheckpoint.option.optionB);
+  optionC.text(selectedCheckpoint.option.optionC);
+
+  optionA.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultA);
+    interval = setInterval(increment, 1000);
+  });
+
+  optionB.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultB);
+    interval = setInterval(increment, 1000);
+  });
+
+  optionC.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultC);
+    interval = setInterval(increment, 1000);
+  });
+
+  distanceAway = 11600000;
+  console.log(selectedCheckpoint);
 }
