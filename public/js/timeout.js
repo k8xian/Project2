@@ -109,10 +109,11 @@ function increment() {
     case distance === final:
       clearInterval();
       break;
-    case (eventTimer % 60) === 0:
-        clearInterval();
-        randomEvent();
-        break;
+    // case ((eventTimer % 60) === 0):
+    //   clearInterval();
+    //   randomEvent();
+    //   eventTimer = 0;
+    //   break;
     }
   } else {
     distance = (distance % final) + slow;
@@ -135,10 +136,11 @@ function increment() {
           clearInterval();
           clearInterval();
           break;
-        case (eventTimer % 60) === 0:
-          clearInterval();
-          randomEvent();
-          break;
+        // case (eventTimer % 60) === 0:
+        //   clearInterval();
+        //   randomEvent();
+        //   eventTimer = 0;
+        //   break;
         }
   }
 
@@ -474,9 +476,6 @@ function randomEvent() {
     result.text(selectedEvent.result.resultC);
     interval = setInterval(increment, 1000);
   });;
-
-  console.log(selectedEvent);
-  return selectedEvent;
 }
 
 function checkpointOne() {
