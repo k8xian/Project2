@@ -68,21 +68,22 @@ function increment() {
     $("#travelled").text(distance);
     // switch case for distance variable
     switch (true) {
-    case distance === moonDistance:
-      console.log("made it to the moon");
-      checkpointOne();
-      break;
-    case distance === midpointDistance:
-      console.log("half-way there");
-      checkpointTwo();
-      break;
-    case distance === deimosDistance:
-      console.log("made it to deimos");
-      checkpointThree();
-      break;
-    case distance >= final:
-      console.log("made it to mars");
-      break;
+      case distance === moonDistance:
+        console.log("made it to the moon");
+        clearInterval();
+        checkpointOne();
+        break;
+      case distance === midpointDistance:
+        console.log("half-way there");
+        checkpointTwo();
+        break;
+      case distance === deimosDistance:
+        console.log("made it to deimos");
+        checkpointThree();
+        break;
+      case distance >= final:
+        console.log("made it to mars");
+        break;
     }
   } else {
     distance = (distance % final) + slow;
@@ -297,7 +298,7 @@ var checkpoint = [
         "You land on the dark side of the Moon and are greeted Moon Men who are friendly and give you provisions and refuel your oxygen and fuel. ",
       resultB: "You continue on your current course and never look back.",
       resultC:
-        "NASA is shocked and does not know what to do, this scares you so bad that you die of disentary. Mission over!"
+        "NASA is shocked and does not know what to do, this scares you so bad that you die of dysentary. Mission over!"
     },
     multiplier: {
       multiplierA: "math-a",
@@ -362,6 +363,30 @@ var checkpoint = [
   }
 ];
 
+<<<<<<< HEAD
+=======
+var factsContainer = $(".modal__facts");
+var optionsContainer = $(".modal__options");
+
+factsContainer.hide();
+optionsContainer.hide();
+
+//========= SEND THE FACT TEXT HERE =============//
+var facts = $("#eventFact");
+
+//========= SEND THE STATUS TEXT =============//
+var statement = $("#status");
+
+//========= SEND THE OPTIONS TEXTS HERE =============//
+var optionA = $("#optionA");
+var optionB = $("#optionB");
+var optionC = $("#optionC");
+
+//========= SEND THE RESULTS HERE ===============//
+var result = $('#status');
+
+
+>>>>>>> c63fd2c7edd9d29199c5d34400a176750bdf2030
 // Story functions
 
 // for random event triggers
@@ -376,11 +401,22 @@ function randomEvent() {
     option: random.option,
     result: random.result,
     multiplier: random.multiplier
+<<<<<<< HEAD
   };
+=======
+  }
+
+>>>>>>> c63fd2c7edd9d29199c5d34400a176750bdf2030
   console.log(selectedEvent);
   return selectedEvent;
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> c63fd2c7edd9d29199c5d34400a176750bdf2030
 function checkpointOne() {
   var selectedCheckpoint = {
     name: checkpoint[0].name,
@@ -392,7 +428,38 @@ function checkpointOne() {
     multiplier: checkpoint[0].multiplier
   };
   console.log(selectedCheckpoint);
-  return selectedCheckpoint;
+  factsContainer.show();
+  optionsContainer.show();
+
+  facts.text(selectedCheckpoint.fact)
+  statement.append(selectedCheckpoint.statement)
+  optionA.append(selectedCheckpoint.option.optionA)
+  optionB.append(selectedCheckpoint.option.optionB)
+  optionC.append(selectedCheckpoint.option.optionC)
+
+  optionA.click(function () {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultA);
+    interval = setInterval(increment, 1000);
+  })
+
+  optionB.click(function () {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultB);
+    interval = setInterval(increment, 1000);
+  })
+
+  optionC.click(function () {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedCheckpoint.result.resultC);
+    interval = setInterval(increment, 1000);
+  })
+
+  console.log(selectedCheckpoint)
+
 }
 
 function checkpointTwo() {
