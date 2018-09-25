@@ -43,6 +43,49 @@ $(document).ready(function() {
     }
   });
 
+  //onclick event for final message
+  $("#sendFinalMessageWin").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    console.log("I got clicked!");
+    var message = $("#finalMessage").val();
+    var missionid = $("#missionID").val();
+
+    var newData = {
+      message: message,
+      id: missionid
+    };
+    if (message) {
+      $.ajax("/api/losers", {
+        type: "POST",
+        data: newData
+      }).then(function() {
+        console.log("Added an epitaph");
+      });
+    }
+  });
+
+  $("#sendFinalMessageLoss").on("click", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    console.log("I got clicked!");
+    var message = $("#finalMessage").val();
+    var missionid = $("#missionID").val();
+
+    var newData = {
+      message: message,
+      id: missionid
+    };
+    if (message) {
+      $.ajax("/api/losers", {
+        type: "POST",
+        data: newData
+      }).then(function() {
+        console.log("Added an epitaph");
+      });
+    }
+  });
+
   var checkbox = function() {
     console.log("starting speed is " + speedSelected);
 

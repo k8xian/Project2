@@ -21,8 +21,8 @@ var missions = {
     });
   },
   //integrating updateOne orm to update devoured status by taking data about the name of the mission and devoured status
-  updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("missions", objColVals, condition, function(res) {
+  updateOne: function(table, objColVals, condition, cb) {
+    orm.updateOne("table", objColVals, condition, function(res) {
       cb(res);
     });
   },
