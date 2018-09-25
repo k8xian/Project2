@@ -519,7 +519,7 @@ text-decoration: none;
   text-align: left;
 }
 
-.control__item{
+.control__item {
   width: calc(100% - 40px);
   height: 40px;
   padding: 0 20px;
@@ -562,7 +562,6 @@ text-decoration: none;
 }
 
 
-
 /* ============================================================================================== 
 Background idea credit: 
 Nick Mkrtchyan
@@ -574,41 +573,24 @@ http://www.Mkrtchyan.zz.mu
     padding: 0;
 }
 
-@keyframes move-twink-back {
+@keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-webkit-keyframes move-twink-back {
+@-webkit-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-moz-keyframes move-twink-back {
+@-moz-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-ms-keyframes move-twink-back {
+@-ms-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
 
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-webkit-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-moz-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-ms-keyframes move-clouds-back {
-    from {background-position: 0;}
-    to {background-position:10000px 0;}
-}
-
-.stars, .twinkling, {
+.stars, .twinkling {
   position:absolute;
   top:0;
   left:0;
@@ -627,13 +609,13 @@ http://www.Mkrtchyan.zz.mu
 .twinkling{
   background:transparent url(../img/twinkling.png) repeat top center;
   z-index:-1;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
+  -moz-animation:twinkle-twinkle 200s linear infinite;
+  -ms-animation:twinkle-twinkle 200s linear infinite;
+  -o-animation:twinkle-twinkle 200s linear infinite;
+  -webkit-animation:twinkle-twinkle 200s linear infinite;
+  animation:twinkle-twinkle 200s linear infinite;
 }
+
 
 /* Minigame Styles */
 
