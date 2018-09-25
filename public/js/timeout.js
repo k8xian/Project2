@@ -109,6 +109,10 @@ function increment() {
     case distance === final:
       clearInterval();
       break;
+    case (eventTimer % 60) === 0:
+        clearInterval();
+        randomEvent();
+        break;
     }
   } else {
     distance = (distance % final) + slow;
@@ -131,15 +135,19 @@ function increment() {
           clearInterval();
           clearInterval();
           break;
+        case (eventTimer % 60) === 0:
+          clearInterval();
+          randomEvent();
+          break;
         }
   }
 
   // After the distance check, this function will then check if it's time for a random event
-  if (eventTimer % 60 === 0) {
-    console.log("random event was triggered");
-    clearInterval();
-    randomEvent();
-  }
+//   if (eventTimer % 60 === 0) {
+//     console.log("random event was triggered");
+//     clearInterval();
+//     randomEvent();
+//   }
 
   if (dayIncrements % 12 === 0) {
     days++;
