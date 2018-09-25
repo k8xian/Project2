@@ -39,7 +39,7 @@ $(document).ready(function() {
       }).then(function() {
         console.log("added a new mission");
         console.log(newMission);
-        //redirect to new page
+        location.replace("/current_missions");
       });
     }
   });
