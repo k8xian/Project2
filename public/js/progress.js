@@ -15,7 +15,7 @@ svg
   .attr("fill", "rgba(0,0,0,.54)")
   .attr("height", 15)
   .attr("width", function() {
-    return segmentWidth * states.length;
+    return 500;
   })
   .attr("x", 0);
 
