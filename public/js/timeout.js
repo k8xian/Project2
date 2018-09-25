@@ -31,6 +31,34 @@ function clearInterval() {
   clearTimeout(interval);
 }
 
+var astOneDead = false;
+var astTwoDead = false;
+var astThreeDead = false;
+var astFourDead = false;
+
+var killAstronaut = function() {
+  if (!astOneDead) {
+    astOneDead = true;
+    $("#astHelmOne").addClass("dead");
+  } else if (astOneDead) {
+    astTwoDead = true;
+    $("#astHelmTwo").addClass("dead");
+  } else if (astOneDead && astTwoDead) {
+    astThreeDead = true;
+    $("#astHelmThree").addClass("dead");
+  } else if (astOneDead && astTwoDead && astThreeDead) {
+    astFourDead = true;
+    $("#astHelmThree").addClass("dead");
+  } else if (astoneDead && astTwoDead && astThreeDead && astFourDead) {
+    var missionId = $("#missionNo").attr("data-id");
+    location.replace(`/loss/${missionId}`);
+    return;
+  }
+};
+
+//call this function
+//killAstronaut();
+
 function increment() {
   eventTimer++;
   dayIncrements++;
@@ -40,41 +68,41 @@ function increment() {
     $("#travelled").text(distance);
     // switch case for distance variable
     switch (true) {
-      case distance === moonDistance:
-        console.log("made it to the moon");
-        checkpointOne();
-        break;
-      case distance === midpointDistance:
-        console.log("half-way there");
-        checkpointTwo();
-        break;
-      case distance === deimosDistance:
-        console.log("made it to deimos");
-        checkpointThree();
-        break;
-      case distance >= final:
-        console.log("made it to mars");
-        break;
+    case distance === moonDistance:
+      console.log("made it to the moon");
+      checkpointOne();
+      break;
+    case distance === midpointDistance:
+      console.log("half-way there");
+      checkpointTwo();
+      break;
+    case distance === deimosDistance:
+      console.log("made it to deimos");
+      checkpointThree();
+      break;
+    case distance >= final:
+      console.log("made it to mars");
+      break;
     }
   } else {
     distance = (distance % final) + slow;
     $("#travelled").text(distance);
     switch (true) {
-      case distance === moonDistance:
-        console.log("made it to the moon");
-        checkpointOne();
-        break;
-      case distance === midpointDistance:
-        console.log("half-way there");
-        checkpointTwo();
-        break;
-      case distance === deimosDistance:
-        console.log("made it to deimos");
-        checkpointThree();
-        break;
-      case distance >= final:
-        console.log("made it to mars");
-        break;
+    case distance === moonDistance:
+      console.log("made it to the moon");
+      checkpointOne();
+      break;
+    case distance === midpointDistance:
+      console.log("half-way there");
+      checkpointTwo();
+      break;
+    case distance === deimosDistance:
+      console.log("made it to deimos");
+      checkpointThree();
+      break;
+    case distance >= final:
+      console.log("made it to mars");
+      break;
     }
   }
 
@@ -93,7 +121,6 @@ function increment() {
     console.log("sols: " + sols);
   }
 }
-
 
 // Story Line Data
 var event = [
@@ -335,8 +362,6 @@ var checkpoint = [
   }
 ];
 
-
-
 // Story functions
 
 // for random event triggers
@@ -351,14 +376,12 @@ function randomEvent() {
     option: random.option,
     result: random.result,
     multiplier: random.multiplier
-  }
+  };
   console.log(selectedEvent);
-  return selectedEvent
+  return selectedEvent;
 }
 
-
 function checkpointOne() {
-
   var selectedCheckpoint = {
     name: checkpoint[0].name,
     image: checkpoint[0].image,
@@ -367,13 +390,12 @@ function checkpointOne() {
     statement: checkpoint[0].statement,
     result: checkpoint[0].result,
     multiplier: checkpoint[0].multiplier
-  }
+  };
   console.log(selectedCheckpoint);
   return selectedCheckpoint;
 }
 
 function checkpointTwo() {
-
   var selectedCheckpoint = {
     name: checkpoint[1].name,
     image: checkpoint[1].image,
@@ -382,13 +404,12 @@ function checkpointTwo() {
     statement: checkpoint[1].statement,
     result: checkpoint[1].result,
     multiplier: checkpoint[1].multiplier
-  }
+  };
   console.log(selectedCheckpoint);
   return selectedCheckpoint;
 }
 
 function checkpointThree() {
-
   var selectedCheckpoint = {
     name: checkpoint[2].name,
     image: checkpoint[2].image,
@@ -397,7 +418,7 @@ function checkpointThree() {
     statement: checkpoint[2].statement,
     result: checkpoint[2].result,
     multiplier: checkpoint[2].multiplier
-  }
+  };
   console.log(selectedCheckpoint);
   return selectedCheckpoint;
 }
