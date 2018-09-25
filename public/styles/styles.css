@@ -28,6 +28,7 @@ h2, h3{
   margin-top: 30px;
   text-align: center;
   color: rgba(255,255,255,.5);
+  font-size: .8em;
 }
 header a, a:visited {
   text-decoration:none;
@@ -58,6 +59,7 @@ hr.title__page.bottom{
 }
 
 a.title__option {
+  font-size: 1.2em;
   clear: both;
   width: 90%;
   text-align: center;
