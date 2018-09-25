@@ -51,7 +51,7 @@
     <div class="update">
         <div class="statusBar__outer">
             <div class="statusBar__inner">
-                <div class="statusBar__text" id="status">{{status}}
+                <div class="statusBar__text" id="status">You're cruising to the moon to begin your journey with a slingshot manuever{{status}}
                 </div>
             </div>
         </div>
@@ -62,24 +62,26 @@
                 <div class="control__item">Days Travelled:</div>
                 <div class="control__item">Sols Travelled:</div>
                 <div class="control__item">Space Weather:</div>
-                <div class="control__item">Oxygen:</div>
-                <div class="control__item">Fuel:</div>
+                <div class="control__item">Oxygen %:</div>
+                <div class="control__item">Fuel %:</div>
                 <div class="control__item">Next Landmark:</div>
                 <div class="control__item">km Travelled:</div>
                 <div class="control__item">Speed:</div>
             </div>
             <div class="controlBar__data"></div>
-            <div class="control__item" id="earthDays">{{days}}</div>
-            <div class="control__item" id="marsDays">{{sols}}</div>
-            <div class="control__item" id="spaceWeather">{{spaceWeather}}</div>
-            <div class="control__item" id="oxygen">{{oxygen}}</div>
-            <div class="control__item" id="fuel">{{fuel}}</div>
-            <div class="control__item" id="toCheckpoint">{{toCheckpoint}}</div>
-            <div class="control__item" id="travelled">{{distance}}</div>
-            <div class="control__item">
-                <div class="switch-field gameplay">
-                    <div id="switch_left" class="speedChangeButton">slow</div>
-                    <div id="switch_right" class="speedChangeButton">fast</div>
+                <div class="control__item" id="earthDays">0{{days}}</div>
+                <div class="control__item" id="marsDays">0{{sols}}</div>
+                <div class="control__item" id="spaceWeather">{{spaceWeather}}</div>
+                <div class="control__item" id="oxygen">100{{oxygen}}</div>
+                <div class="control__item" id="fuel">100{{fuel}}</div>
+                <div class="control__item" id="toCheckpoint">348000{{toCheckpoint}}</div>
+                <div class="control__item" id="travelled">{{distance}}</div>
+                <div class="control__item">
+                    <div class="switch-field gameplay">
+                        <div id="switch_left" class="speedChangeButton">slow</div>
+                        <div id="switch_right" class="speedChangeButton">fast</div>
+                    </div>
+
                 </div>
             </div>
         </div>
