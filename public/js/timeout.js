@@ -124,9 +124,11 @@ function increment() {
           break;
         case distance === deimosDistance:
           clearInterval();
+          clearInterval();
           checkpointThree();
           break;
         case distance === final:
+          clearInterval();
           clearInterval();
           break;
         }
@@ -135,6 +137,7 @@ function increment() {
   // After the distance check, this function will then check if it's time for a random event
   if (eventTimer % 60 === 0) {
     console.log("random event was triggered");
+    clearInterval();
     randomEvent();
   }
 
@@ -145,6 +148,12 @@ function increment() {
     $("#marsDays").text(sols.toFixed(2));
     oxygen = oxygen - 2;
     fuel = fuel - 2;
+    $('#oxygen').text(oxygen);
+    $('#fuel').text(fuel);
+
+    if (oxygen === 0 || fuel === 0) {
+        console.log('Game Over')
+    }
     console.log("earth days: " + days);
     console.log("sols: " + sols);
   }
@@ -428,6 +437,37 @@ function randomEvent() {
   };;
 
   console.log(selectedEvent);
+  factsContainer.show();
+  optionsContainer.show();
+
+  facts.text(selectedEvent.fact);;
+  statement.text(selectedEvent.statement);;
+  optionA.text(selectedEvent.option.optionA);;
+  optionB.text(selectedEvent.option.optionB);;
+  optionC.text(selectedEvent.option.optionC);;
+
+  optionA.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultA);
+    interval = setInterval(increment, 1000);
+  });;
+
+  optionB.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultB);
+    interval = setInterval(increment, 1000);
+  });;
+
+  optionC.click(function() {
+    factsContainer.hide();
+    optionsContainer.hide();
+    result.text(selectedEvent.result.resultC);
+    interval = setInterval(increment, 1000);
+  });;
+
+  console.log(selectedEvent);
   return selectedEvent;
 }
 
@@ -541,6 +581,7 @@ function checkpointThree() {
     multiplier: checkpoint[2].multiplier
   };
   console.log(selectedCheckpoint);
+  clearInterval();
   factsContainer.show();
   optionsContainer.show();
 
