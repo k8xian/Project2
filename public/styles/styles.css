@@ -26,13 +26,26 @@ h1{
 
 h2, h3{
   margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
   color: rgba(255,255,255,.5);
-  font-size: .8em;
+  font-size: 1em;
 }
 header a, a:visited {
   text-decoration:none;
   color:#fcfcfc;
+}
+
+.finalstats{
+  text-align: center;
+  margin: auto;
+  font-size: 1.2em;
+  line-height: 2em;
+  display: block;
+}
+
+.finalstats:first-of-type{
+  margin-top: 50px;
 }
 
 @media screen and (max-width: 320px){
@@ -72,6 +85,11 @@ a.title__option {
   border-radius: 7px;
   text-decoration: none;
   color: var(--color-main);
+  font-size: 1.2em;    
+}
+
+a.title__option.final{
+  margin-top: 85px;
 }
 
 a.title__option:hover{
@@ -187,6 +205,51 @@ input[type="text"]{
   line-height: 1.5em;
   font-family: var(--font-main);
   margin: 15px 0;
+}
+
+input[type="text"]#finalMessage{
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-family: var(--font-main);
+  margin: auto;
+  display: block;
+  width: 50%;
+  text-align: center;
+}
+
+input[type="submit"]#sendFinalMessageWin, input[type="submit"]#sendFinalMessageLoss {
+  width: 300px;
+  padding: 20px 40px;
+  text-align: center;
+  color: var(--color-main);
+  font-size: 1em;
+  border-radius: 5px;
+  font-family: var(--font-main);
+  border: 1px solid white;
+  margin-top: 57px;
+  display: block;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  animation-name: none;
+  float: none;
+  margin: auto;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  top: 50px;
+}
+
+input[type="submit"]#sendFinalMessageWin:hover{
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
+}
+input[type="submit"]#sendFinalMessageLoss:hover{
+  background-color: var(--color-highlight);
+  color: var(--color-dark);
 }
 
 .astronaut{
@@ -379,7 +442,6 @@ a.launch-mission{
   border-radius: 4px 0 0 4px;
 }
 
-
 .play{
   display: grid;
   grid-template-columns: 2vw 32vw 32vw 32vw 2vw;
@@ -388,9 +450,7 @@ a.launch-mission{
                         "marginL checkpointOne checkpointTwo checkpointThree marginR"
                         "update update update update update"
                         "controls controls controls controls controls";
-
 }
-
 
 .modal__facts {
   grid-column-start: 2;
@@ -521,12 +581,11 @@ text-decoration: none;
   text-align: left;
 }
 
-.control__item{
+.control__item {
   width: calc(100% - 40px);
   height: 40px;
   padding: 0 20px;
 }
-
 
 /* ====Astronaut Blocks===== */
 .astronaut__block{
@@ -563,8 +622,6 @@ text-decoration: none;
   background-repeat: no-repeat;
 }
 
-
-
 /* ============================================================================================== 
 Background idea credit: 
 Nick Mkrtchyan
@@ -576,41 +633,24 @@ http://www.Mkrtchyan.zz.mu
     padding: 0;
 }
 
-@keyframes move-twink-back {
+@keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-webkit-keyframes move-twink-back {
+@-webkit-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-moz-keyframes move-twink-back {
+@-moz-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
-@-ms-keyframes move-twink-back {
+@-ms-keyframes twinkle-twinkle {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
 }
 
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-webkit-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-moz-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-ms-keyframes move-clouds-back {
-    from {background-position: 0;}
-    to {background-position:10000px 0;}
-}
-
-.stars, .twinkling, {
+.stars, .twinkling {
   position:absolute;
   top:0;
   left:0;
@@ -629,12 +669,11 @@ http://www.Mkrtchyan.zz.mu
 .twinkling{
   background:transparent url(../img/twinkling.png) repeat top center;
   z-index:-1;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
+  -moz-animation:twinkle-twinkle 200s linear infinite;
+  -ms-animation:twinkle-twinkle 200s linear infinite;
+  -o-animation:twinkle-twinkle 200s linear infinite;
+  -webkit-animation:twinkle-twinkle 200s linear infinite;
+  animation:twinkle-twinkle 200s linear infinite;
 }
 
 /* Minigame Styles */
