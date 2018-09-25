@@ -73,14 +73,12 @@ router.get("/play/:id", function(req, res) {
 
 router.get("/win/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-  missions.selectOne("winners", condition, function(data) {
+  missions.selectOne("missions", condition, function(data) {
     var hbsObject = {
       message: "You won!",
       id: req.params.id,
       missionName: "Mission Name: " + data[0].missionName,
       days: "Days to Mars: " + data[0].daysTravelled,
-      astronautsAlive: "Astronauts alive: " + data[0].astronautsAlive,
-      messageTwo: "Enter your victory message",
       winloss: "Win"
     };
     res.render("winloss", hbsObject);
@@ -89,12 +87,11 @@ router.get("/win/:id", function(req, res) {
 
 router.get("/loss/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-  missions.selectOne("losers", condition, function(data) {
+  missions.selectOne("missions", condition, function(data) {
     var hbsObject = {
       message: "Your entire team died of space dysentary",
       id: req.params.id,
       missionName: "Mission Name: " + data[0].missionName,
-      distance: "Distance Traveled: " + data[0].distance + " km",
       messageTwo: "Enter your epitaph",
       winloss: "Loss"
     };
