@@ -13,14 +13,28 @@ router.get("/mission", function(req, res) {
 });
 
 router.get("/failed_missions", function(req, res) {
-  res.render("mission_list", {
-    message: "Failed Missions"
+  missions.selectAll("losers", function(data) {
+    var hbsObject = {
+      message: "You have died of space dysentery",
+      winloss: data,
+      messageTwo: "You are the worst"
+    };
+    console.log(hbsObject);
+    //sending data to render in handlebars
+    res.render("mission_list", hbsObject);
   });
 });
 
 router.get("/successful_missions", function(req, res) {
-  res.render("mission_list", {
-    message: "Martian Colony Residents"
+  missions.selectAll("winners", function(data) {
+    var hbsObject = {
+      message: "Martian Colony Residents",
+      winloss: data,
+      messageTwo: "Congratulations and welcome to Mars"
+    };
+    console.log(hbsObject);
+    //sending data to render in handlebars
+    res.render("mission_list", hbsObject);
   });
 });
 
@@ -40,28 +54,6 @@ router.get("/current_missions", function(req, res) {
     res.render("mission_list", hbsObject);
   });
 });
-
-// router.get("/winners", function(req, res) {
-//   missions.selectAll("winners", function(data) {
-//     var hbsObject = {
-//       missions: data
-//     };
-//     console.log(hbsObject);
-//     //sending data to render in handlebars
-//     res.render("mission_list", hbsObject);
-//   });
-// });
-
-// router.get("/losers", function(req, res) {
-//   missions.selectAll("losers", function(data) {
-//     var hbsObject = {
-//       missions: data
-//     };
-//     console.log(hbsObject);
-//     //sending data to render in handlebars
-//     res.render("index", hbsObject);
-//   });
-// });
 
 router.get("/play/:id", function(req, res) {
   var condition = "id = " + req.params.id;
