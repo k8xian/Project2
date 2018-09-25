@@ -158,6 +158,8 @@ $(document).ready(function() {
       throw err;
     });
 
+  //========= calculate distance to mars =============//
+
   //========= SHOWING AND HIDING THE EVENT MODAL =============//
   var factsContainer = $(".modal__facts");
   var optionsContainer = $(".modal__options");

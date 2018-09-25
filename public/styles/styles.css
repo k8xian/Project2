@@ -452,6 +452,22 @@ a.launch-mission{
                         "controls controls controls controls controls";
 }
 
+.progressDisplay {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align:center;
+  padding-top: 20px;
+}
+
+.progressTitle{
+  margin: 5px 72px;
+  font-size: .5em;
+  float: left;
+}
+
+
 .modal__facts {
   grid-column-start: 2;
   grid-column-end: 5;
