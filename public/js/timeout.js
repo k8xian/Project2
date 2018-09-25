@@ -90,3 +90,6 @@ function increment() {
     console.log("sols: " + sols);
   }
 }
+
+
+//note if an astronaut dies, addClass dead to the astronaut name to indicate this.
