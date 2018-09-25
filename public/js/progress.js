@@ -35,7 +35,6 @@ window.setInterval(function() {
     .duration(1000)
     .attr("width", function() {
       var sofar = distance;
-      console.log("distance so far is:" + sofar);
       var trip = 58000000;
       return (sofar / trip) * 500;
     });
