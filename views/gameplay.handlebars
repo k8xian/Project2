@@ -1,4 +1,20 @@
 <div class="play">
+    <!-- EVENT MODAL -->
+    <div class="modal__facts">
+        <div class="event__fact" id="eventFact">Fact: {{fact}} "As of 5 July 2016, the United States Strategic
+            Command tracked a total of 17,852 artificial objects in orbit above the Earth, including 1,419
+            operational satellites. However, these are just objects large enough to be tracked. As of July 2013,
+            more than 170 million debris smaller than 1 cm (0.4 in), about 670,000 debris 1–10 cm, and around
+            29,000 larger debris were estimated to be in orbit. Collisions with debris have become a hazard to
+            spacecraft!"
+        </div>
+    </div>
+    <div class="modal__options">
+        <a class="modal__choice" id="optionA">1.{{optionA}}</a>
+        <a class="modal__choice" id="optionB">2.{{optionB}}</a>
+        <a class="modal__choice" id="optionC">3.{{optionC}}</a>
+    </div>
+    <!-- END EVENT MODAL-->
     <div class="status">
         <div class="astronautLives">
             <div class="astronaut__block" id="astronautOne">
@@ -35,7 +51,8 @@
     <div class="update">
         <div class="statusBar__outer">
             <div class="statusBar__inner">
-                <div class="statusBar__text" id="status">{{status}}</div>
+                <div class="statusBar__text" id="status">{{status}}
+                </div>
             </div>
         </div>
     </div>
