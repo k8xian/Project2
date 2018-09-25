@@ -40,7 +40,7 @@ var astFourDead = false;
 var losingScreen = function() {
   var missionId = $("#missionNo").attr("data-id");
   location.replace(`/loss/${missionId}`);
-};;
+};
 
 //function to kill an astronaut
 var killAstronaut = function() {
@@ -72,11 +72,37 @@ function increment() {
   if (speedSelected === fast) {
     distance = (distance % final) + fast;
     $("#travelled").text(distance);
+    $("#progress").width((distance / 58000000) * 250);
     // switch case for distance variable
     switch (true) {
     case distance === moonDistance:
       console.log("made it to the moon");
       clearInterval();
+      checkpointOne();
+      break;
+    case distance === midpointDistance:
+      console.log("half-way there");
+      checkpointTwo();
+      $(".checkpointOne").hide();
+      $(".checkpointTwo").show();
+      break;
+    case distance === deimosDistance:
+      console.log("made it to deimos");
+      checkpointThree();
+      $(".checkpointTwo").hide();
+      $(".checkpointThree").show();
+      break;
+    case distance >= final:
+      console.log("made it to mars");
+      break;
+    }
+  } else {
+    distance = (distance % final) + slow;
+    $("#travelled").text(distance);
+    $("#progress").width((distance / 58000000) * 250);
+    switch (true) {
+    case distance === moonDistance:
+      console.log("made it to the moon");
       checkpointOne();
       break;
     case distance === midpointDistance:
@@ -90,26 +116,6 @@ function increment() {
     case distance >= final:
       console.log("made it to mars");
       break;
-    }
-  } else {
-    distance = (distance % final) + slow;
-    $("#travelled").text(distance);
-    switch (true) {
-      case distance === moonDistance:
-        console.log("made it to the moon");
-        checkpointOne();
-        break;
-      case distance === midpointDistance:
-        console.log("half-way there");
-        checkpointTwo();
-        break;
-      case distance === deimosDistance:
-        console.log("made it to deimos");
-        checkpointThree();
-        break;
-      case distance >= final:
-        console.log("made it to mars");
-        break;
     }
   }
 
@@ -389,7 +395,6 @@ var optionC = $("#optionC");
 //========= SEND THE RESULTS HERE ===============//
 var result = $("#status");
 
-
 // Story functions
 
 // for random event triggers
@@ -404,7 +409,7 @@ function randomEvent() {
     option: random.option,
     result: random.result,
     multiplier: random.multiplier
-  };;
+  };
 
   console.log(selectedEvent);
   return selectedEvent;
@@ -424,34 +429,34 @@ function checkpointOne() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedCheckpoint.fact);;
-  statement.append(selectedCheckpoint.statement);;
-  optionA.append(selectedCheckpoint.option.optionA);;
-  optionB.append(selectedCheckpoint.option.optionB);;
-  optionC.append(selectedCheckpoint.option.optionC);;
+  facts.text(selectedCheckpoint.fact);
+  statement.append(selectedCheckpoint.statement);
+  optionA.append(selectedCheckpoint.option.optionA);
+  optionB.append(selectedCheckpoint.option.optionB);
+  optionC.append(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultB);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
-  console.log(selectedCheckpoint);;
+  console.log(selectedCheckpoint);
 }
 
 function checkpointTwo() {
