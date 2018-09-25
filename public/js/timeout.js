@@ -58,7 +58,14 @@ var astFourDead = false;
 var losingScreen = function() {
   var missionId = $("#missionNo").attr("data-id");
   location.replace(`/loss/${missionId}`);
-};;
+};
+
+
+var winningScreen = function() {
+  var missionId = $("#missionNo").attr("data-id");
+  location.replace(`/win/${missionId}`);
+};
+
 
 //function to kill an astronaut
 var killAstronaut = function() {
@@ -92,6 +99,7 @@ function increment() {
   if (speedSelected = fast) {
     distance = (distance % final) + fast;
     $("#travelled").text(distance);
+    $("#progress").width((distance / 58000000) * 250);
     // switch case for distance variable
     switch (true) {
     case distance === moonDistance:
@@ -101,10 +109,14 @@ function increment() {
     case distance === midpointDistance:
       clearInterval();
       checkpointTwo();
+      $(".checkpointOne").hide();
+      $(".checkpointTwo").show();
       break;
     case distance === deimosDistance:
       clearInterval();
       checkpointThree();
+      $(".checkpointTwo").hide();
+      $(".checkpointThree").show();
       break;
     case distance === final:
       clearInterval();
@@ -118,6 +130,7 @@ function increment() {
   } else {
     distance = (distance % final) + slow;
     $("#travelled").text(distance);
+    $("#progress").width((distance / 58000000) * 250);
     switch (true) {
         case distance === moonDistance:
           clearInterval();
@@ -136,20 +149,15 @@ function increment() {
           clearInterval();
           clearInterval();
           break;
-        // case (eventTimer % 60) === 0:
-        //   clearInterval();
-        //   randomEvent();
-        //   eventTimer = 0;
-        //   break;
-        }
+    }
     }
 
   // After the distance check, this function will then check if it's time for a random event
-//   if (eventTimer % 60 === 0) {
-//     console.log("random event was triggered");
-//     clearInterval();
-//     randomEvent();
-//   }
+  //   if (eventTimer % 60 === 0) {
+  //     console.log("random event was triggered");
+  //     clearInterval();
+  //     randomEvent();
+  //   }
 
   if (dayIncrements % 12 === 0) {
     days++;
@@ -429,7 +437,6 @@ var optionC = $("#optionC");
 //========= SEND THE RESULTS HERE ===============//
 var result = $("#status");
 
-
 // Story functions
 
 // for random event triggers
@@ -444,7 +451,7 @@ function randomEvent() {
     option: random.option,
     result: random.result,
     multiplier: random.multiplier
-  };;
+  };
 
   console.log(selectedEvent);
   factsContainer.show();
@@ -505,7 +512,7 @@ function checkpointOne() {
     fast = 116000;
     slow = 58000;
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
@@ -514,7 +521,7 @@ function checkpointOne() {
     fast = 116000;
     slow = 58000;
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
@@ -523,11 +530,11 @@ function checkpointOne() {
     fast = 116000;
     slow = 58000;
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   console.log(selectedCheckpoint);;
   //temporary fix to speedSelected bug - assigned it again to fast
-//   speedSelected = fast;
+  //speedSelected = fast;
   distanceAway = 28652000;;
 }
 

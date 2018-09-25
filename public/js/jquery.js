@@ -39,7 +39,7 @@ $(document).ready(function() {
       }).then(function() {
         console.log("added a new mission");
         console.log(newMission);
-        //redirect to new page
+        location.replace("/current_missions");
       });
     }
   });
@@ -157,6 +157,8 @@ $(document).ready(function() {
       // Do something for an error here
       throw err;
     });
+
+  //========= calculate distance to mars =============//
 
   //========= SHOWING AND HIDING THE EVENT MODAL =============//
   var factsContainer = $(".modal__facts");
