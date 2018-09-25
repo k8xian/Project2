@@ -40,7 +40,12 @@ var astFourDead = false;
 var losingScreen = function() {
   var missionId = $("#missionNo").attr("data-id");
   location.replace(`/loss/${missionId}`);
-};;
+};
+
+var winningScreen = function() {
+  var missionId = $("#missionNo").attr("data-id");
+  location.replace(`/win/${missionId}`);
+};
 
 //function to kill an astronaut
 var killAstronaut = function() {
@@ -389,7 +394,6 @@ var optionC = $("#optionC");
 //========= SEND THE RESULTS HERE ===============//
 var result = $("#status");
 
-
 // Story functions
 
 // for random event triggers
@@ -404,7 +408,7 @@ function randomEvent() {
     option: random.option,
     result: random.result,
     multiplier: random.multiplier
-  };;
+  };
 
   console.log(selectedEvent);
   return selectedEvent;
@@ -424,34 +428,34 @@ function checkpointOne() {
   factsContainer.show();
   optionsContainer.show();
 
-  facts.text(selectedCheckpoint.fact);;
-  statement.append(selectedCheckpoint.statement);;
-  optionA.append(selectedCheckpoint.option.optionA);;
-  optionB.append(selectedCheckpoint.option.optionB);;
-  optionC.append(selectedCheckpoint.option.optionC);;
+  facts.text(selectedCheckpoint.fact);
+  statement.append(selectedCheckpoint.statement);
+  optionA.append(selectedCheckpoint.option.optionA);
+  optionB.append(selectedCheckpoint.option.optionB);
+  optionC.append(selectedCheckpoint.option.optionC);
 
   optionA.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionB.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultB);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
-  });;
+  });
 
-  console.log(selectedCheckpoint);;
+  console.log(selectedCheckpoint);
 }
 
 function checkpointTwo() {
