@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS mars_db;
+DROP DATABASE IF EXISTS mars_db;
 CREATE DATABASE mars_db;
 USE mars_db;
 

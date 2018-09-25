@@ -15,6 +15,4 @@ function randomEvent () {
     return selectedEvent
 }
 
-module.exports = {
-    randomEvent: randomEvent()
-}
+randomEvent();
