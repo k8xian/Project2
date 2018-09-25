@@ -62,7 +62,8 @@ router.get("/play/:id", function(req, res) {
       astronautOne: data[0].astronautOne,
       astronautTwo: data[0].astronautTwo,
       astronautThree: data[0].astronautThree,
-      astronautFour: data[0].astronautFour
+      astronautFour: data[0].astronautFour,
+      id: req.params.id
     };
     console.log(hbsObject);
     //sending data to render in handlebars

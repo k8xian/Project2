@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#notice").hide();
+  var missionId = $("#missionNo").val();
   console.log("I'm ready!");
   $("#createMission").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
@@ -101,6 +102,7 @@ $(document).ready(function() {
   };
 
   checkbox();
+  console.log("Mission ID is: " + missionId);
 
   $("#switch_left").on("click", function(event) {
     event.preventDefault();
