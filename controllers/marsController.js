@@ -75,10 +75,10 @@ router.get("/win/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   missions.selectOne("missions", condition, function(data) {
     var hbsObject = {
-      message: "You won!",
+      message: "You won! Welcome to Mars",
       id: req.params.id,
       missionName: "Mission Name: " + data[0].missionName,
-      days: "Days to Mars: " + data[0].daysTravelled,
+      messageTwo: "Enter your victory message",
       winloss: "Win"
     };
     res.render("winloss", hbsObject);
