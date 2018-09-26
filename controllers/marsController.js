@@ -77,7 +77,7 @@ router.get("/win/:id", function(req, res) {
     var hbsObject = {
       message: "You won! Welcome to Mars",
       id: req.params.id,
-      missionName: "Mission Name: " + data[0].missionName,
+      missionName: data[0].missionName,
       messageTwo: "Enter your victory message",
       winloss: "Win"
     };
@@ -91,7 +91,7 @@ router.get("/loss/:id", function(req, res) {
     var hbsObject = {
       message: "Your entire team died of space dysentary",
       id: req.params.id,
-      missionName: "Mission Name: " + data[0].missionName,
+      missionName: data[0].missionName,
       messageTwo: "Enter your epitaph",
       winloss: "Loss"
     };
@@ -102,6 +102,7 @@ router.get("/loss/:id", function(req, res) {
 //adding a mission based on form data
 router.post("/api/mission", function(req, res) {
   missions.createOne(
+    "missions",
     [
       "missionName",
       "astronautOne",
@@ -130,21 +131,25 @@ router.post("/api/mission", function(req, res) {
   );
 });
 
-router.put("/api/winners", function(req, res) {
-  var condition = "id = " + req.body.id;
-  var table = "winners";
-  mission.updateOne(
-    table,
-    {
-      victoryMessage: req.body.message
-    },
-    condition,
+//saving victory message
+router.post("/api/winners", function(req, res) {
+  missions.createOne(
+    "winners",
+    ["missionName", "victoryMessage"],
+    [req.body.missionName, req.body.finalMessage],
     function(result) {
-      if (result.changedRows === 0) {
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
+      res.json({ id: result.insertId });
+    }
+  );
+});
+
+router.post("/api/losers", function(req, res) {
+  missions.createOne(
+    "losers",
+    ["missionName", "epitaph"],
+    [req.body.missionName, req.body.finalMessage],
+    function(result) {
+      res.json({ id: result.insertId });
     }
   );
 });
@@ -167,18 +172,5 @@ router.put("/api/losers", function(req, res) {
     }
   );
 });
-
-// //deleting burgers, because we can
-// router.delete("/api/burgers/:id", function(req, res) {
-//   var condition = "id = " + req.params.id;
-
-//   burger.delete(condition, function(result) {
-//     if (result.affectedRows === 0) {
-//       return res.status(404).end();
-//     } else {
-//       res.status(200).end();
-//     }
-//   });
-// });
 
 module.exports = router;

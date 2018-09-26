@@ -15,8 +15,8 @@ var missions = {
     });
   },
   //integrating insertOne orm and taking variables to specify data to be inserted
-  createOne: function(cols, vals, cb) {
-    orm.create("missions", cols, vals, function(res) {
+  createOne: function(table, cols, vals, cb) {
+    orm.create(table, cols, vals, function(res) {
       cb(res);
     });
   },
