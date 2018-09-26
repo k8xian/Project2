@@ -182,7 +182,7 @@ var event = [
     fact:
       "As of 5 July 2016, the United States Strategic Command tracked a total of 17,852 artificial objects in orbit above the Earth, including 1,419 operational satellites. However, these are just objects large enough to be tracked. As of July 2013, more than 170 million debris smaller than 1 cm (0.4 in), about 670,000 debris 1–10 cm, and around 29,000 larger debris were estimated to be in orbit. Collisions with debris have become a hazard to spacecraft!",
     statement:
-      "Your ship has been hit by a hunk of flying space junk! Your sensor array has become inoperable. Without it you will not survive. You must quickly do one of the following:",
+      "Your ship has been hit by a hunk of flying space junk! Your sensor array has become inoperable. You must quickly do one of the following:",
     option: {
       optionA:
         "You send one of your crew to perform a spacewalk and fix the array. This is the best option to repair the sensor array but you risk losing an astronaut.",
@@ -280,7 +280,7 @@ var event = [
     fact:
       "There is evidence that Mars had a warmer and wetter past: dried-up river beds, polar ice caps, volcanoes, and minerals that form in the presence of water have all been found. Nevertheless, present conditions on Mars' subsurface may support life.",
     statement:
-      "One of the crew has been having chest pains and have been placed in the medical pod. Exams results show that the astronaut has an alien growing inside of him. You must choose from the following treatment options:",
+      "One of the crew has been having chest pains and have been placed in the medical pod. Exams results show that the astronaut has an alien growing inside of him. You must choose from the following:",
     option: {
       optionA: "Throw him out the airlock, don't need any aliens on the ship",
       optionB: "Attempt surgery with the robot",
@@ -290,7 +290,7 @@ var event = [
       resultA:
         "A struggle breaks out, and he and another crew member get sucked out of the airlock. You just lost two astronauts. That's what you get for not being compassionate.",
       resultB:
-        "Surgery is unsuccessful and the astronaut dies, but the alien is removed and burned in an incinerator. You lose an astronaut, 20% fuel for the robot, and 10% oxygen for the incinerator.",
+        "Surgery is unsuccessful and the astronaut dies, but the alien is removed and burned in an incinerator. You also lose 20% fuel for the robot, and 10% oxygen for the incinerator.",
       resultC:
         "You lose 3 days, but you manage to coax out the alien and transfer it to the rat onboard. The rat was thrown out the airlock, solving the problem. Great job on thinking outside the box."
     },
@@ -336,7 +336,7 @@ var checkpoint = [
     fact:
       "The Moon (or Luna) is the Earth's only natural satellite and was formed 4.6 billion years ago around some 30–50 million years after the formation of the solar system. The Moon is in synchronous rotation with Earth meaning the same side is always facing the Earth.",
     statement:
-      "You have arrived at the Moon, the first stop on a long voyage. You get a signal from the dark side of the moon. Choose from the following options:",
+      "You have arrived at the Moon, the first stop on a long voyage. You get a signal from the dark side of the moon. What do you do?",
     option: {
       optionA: "You go and investigate and land on the dark side of the moon.",
       optionB:
@@ -361,9 +361,9 @@ var checkpoint = [
     name: "Midpoint",
     image: "url",
     fact:
-      "'Nobody can prove that there is not between the Earth and Mars a china teapot revolving in an elliptical orbit, but nobody thinks this sufficiently likely to be taken into account in practice.'-Bertrand Russell",
+      "'Nobody can prove that there is not between the Earth and Mars a china teapot revolving in an elliptical orbit, but nobody thinks this sufficiently likely to be taken into account in practice.'-Bertrand Russell Congratlations! You have reached the halfway point between Earth and Mars, an amazing feat unto itself.",
     statement:
-      "Congratlations! You have reached the halfway point between Earth and Mars, an amazing feat unto itself. While you might be thniking about that teapot, you did not encounter one. However, what you did encoutner is a glowing green orb that is approaching your ship! Without much time to react you choose to do the following:",
+      "You encoutner a glowing green orb that is approaching your ship! Without much time to react you have to choose to do one of the following:",
     option: {
       optionA:
         "Not wanting to take a risk, you turn your ship to avoid the glowing orb.",
@@ -389,9 +389,9 @@ var checkpoint = [
     name: "Deimos",
     image: "url",
     fact:
-      "Deimos's orbit is slowly getting larger, because it is far enough away from Mars and because of tidal acceleration. It is expected to eventually escape Mars's gravity.",
+      "Deimos's orbit is slowly getting larger, because it is far enough away from Mars and because of tidal acceleration. It is expected to eventually escape Mars's gravity. Mars is glowing a fiery red in the distance as you touch down on Deimos to plan a final approach to Mars and gather sand off the surface, which will be used as a braking dust to create a denser atmosphere in front of the ship as your enter Mars. ",
     statement:
-      "Mars is glowing a fiery red in the distance as you touch down on Deimos for to plan a final approach to Mars and gather sand off the surface, which will be used as a braking dust to create a denser atmosphere in front of the ship as your enter Mars. However, while gathering the sand you encounter a large hole which appears to be an interdimentional portal to, you guessed it, HELL! Did we forget to mention that Deimos means terror? Demons start coming out of the portal and turn thier attention towards you; what do you do?",
+      "While gathering the sand you encounter a large hole which appears to be an interdimentional portal to, you guessed it, HELL! Demons start coming out of the portal and turn their attention towards you; what do you do?",
     option: {
       optionA: "You drop the sand and run like hell back to the ship.",
       optionB:
