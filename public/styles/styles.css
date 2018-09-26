@@ -97,7 +97,12 @@ color: var(--color-highlight);
 }
 a.title__option:visited, a.title__option:focus{
 text-decoration: none;
-  }
+}
+
+a.title__option.leaderboard{
+  color: var(--color-highlight);
+}
+
 
 .start {
   display: grid;
@@ -487,6 +492,12 @@ a.launch-mission{
   text-align: justify;
 }
 
+.final__message{
+  text-align: center;
+  margin-top: -34px;
+  color: var(--color-main);
+  font-size: .7em;
+}
 .modal__options{
   grid-column-start: 2;
   grid-column-end: 5;
