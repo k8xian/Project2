@@ -361,7 +361,6 @@ a.launch-mission{
 .switch-field.gameplay{
   margin: 0;
   float: left;
-  width: 300px;
 }
 
 .speedChangeButton{
@@ -579,7 +578,7 @@ text-decoration: none;
 }
 
 .controlBar__content{
-  width: 60%;
+  width: 90%;
   height: 100%;
   margin: auto;
 }
@@ -607,7 +606,7 @@ text-decoration: none;
 .astronaut__block{
   width: 80px;
   height: 70px;
-  float: left;
+  float: right;
   margin-left: 2px;
   text-align: center;
 }
@@ -721,4 +720,128 @@ canvas {
 
 #info p {
 	font-size: 11px;
+}
+
+@media screen and (max-width: 768px){
+  .progress {
+    zoom: 75%;
+  }
+  .play{
+    grid-template-rows: 10vh 25vh 25vh 40vh;
+    grid-template-columns: 2vw 20vw 56vw 20vw 2vw;
+  }
+  .progressTitle{
+    margin: 5px auto;
+    font-size: .5em;
+    float: left;
+    width: 100%;
+  }
+
+  a.modal__choice{
+    font-size: .7em;
+  }
+  .event__fact{
+    font-size: .6em;
+  }
+}
+
+@media screen and (max-width: 640px){
+  .progress {
+    zoom: 50%;
+  }
+
+  .play{
+    grid-template-columns: 2vw 20vw 56vw 20vw 2vw;
+  }
+
+  .control__item {
+    font-size: .6em;
+  }
+
+  .start {
+    display: grid;
+    grid-template-columns: 2vw 96vw 2vw;
+    grid-template-rows: 2vh 24vh 72vh 2vh;
+    grid-template-areas: "marginL headerSmall marginR"
+                        "marginL rocketSmall marginR"
+                        "marginL formSmall marginR";
+  }
+
+  .rocketArea {
+    grid-area: rocketSmall;
+    width: 100%;
+  }
+
+  .rocket{
+    background-image: url(../img/rocket.svg);
+    height: 22vh;
+    width: 100%;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    left: 0;
+    right: 0;
+  }
+
+  .missionForm {
+    grid-area: formSmall;
+    padding: 5%;
+    text-align: center;
+}
+
+form.newMissionData{
+  font-family: var(--font-main);
+  text-align: left;
+  margin-left: 5%;
+}
+
+label.astronautName{
+  width: 63%;
+  float: left;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 1em;
+  line-height: 2em;
+  clear: both;
+}
+
+input {
+  clear: both;
+  width: 100%;
+  text-align: right;
+  background: none;
+  border: 0;
+}
+
+input[type="text"] {
+  text-align: center;
+}
+a.submit-mission{
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1em;
+  border-radius: 5px;
+  font-family: var(--font-main);
+  border: 1px solid white;
+  margin: 50px 0;
+  display: block;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+.speedChangeButton{
+  margin: 0 19px 0 0px;
+}
+.control__item.buttons{
+  zoom: 68%;
+  width: 100%;
+  float: right;
+  margin-top: -67px;
+  margin-right: -283px;
+}
 }
