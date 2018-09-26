@@ -282,7 +282,7 @@ var event = [
     result: {
       resultA: "Oxygen and fuel has been gained! We live to see another random event",
       resultB: "Why wouldn't you choose to gain resources, idiot. You've only wasted resources from that decision.",
-      resultC: "Well, that was definitely one of your worst decisions. The astronaut collided into an asteroid at tremendous speeds. Remember, its not the hit that kills you, its the accerlation change."
+      resultC: "Well, that was definitely one of your worst decisions. The astronaut collided into an asteroid at tremendous speeds. Remember, it's not the hit that kills you, it's the change in acceleration."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -304,7 +304,7 @@ var event = [
     },
     result: {
       resultA:
-        "Succees! You manage to coax out the alien and transfer it to the rat. The rat was then injected from the airlock. You'll be remembered lab rat 1101001-CB. That's one less mouth to feed.",
+        "Success! You manage to coax out the alien and transfer it to the rat. The rat was then ejected from the airlock. You'll be remembered lab rat 1101001-CB. That's one less mouth to feed.",
       resultB:
         "Surgery is successful! The alien has been removed and burned in an incinerator four times over. However, the procedure expended resources.",
       resultC:
