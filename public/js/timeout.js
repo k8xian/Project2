@@ -15,6 +15,16 @@ var sols = 0;
 var oxygen = 100;
 var fuel = 100;
 
+function resourceGain() {
+    oxygen = oxygen + 10;
+    fuel = fuel + 10;
+}
+
+function resourceLoss() {
+    oxygen = oxygen - 10;
+    fuel = fuel - 10;
+}
+
 // speeds --- original fast speed is 58,000 and original slow is 29,000. The following values represent double speeds
 var fast = 14500;
 var slow = 11600;
@@ -77,8 +87,8 @@ var killAstronaut = function() {
     $("#astHelmThree").addClass("dead");
   } else if (astOneDead && astTwoDead && astThreeDead) {
     astFourDead = true;
-    $("#astHelmThree").addClass("dead");
-  } else if (astoneDead && astTwoDead && astThreeDead && astFourDead) {
+    $("#astHelmFour").addClass("dead");
+  } else if (astOneDead && astTwoDead && astThreeDead && astFourDead) {
     losingScreen();
     return;
   }
@@ -117,6 +127,7 @@ function increment() {
       break;
     case distance === final:
       clearInterval();
+      winningScreen();
       break;
       // case ((eventTimer % 60) === 0):
       //   clearInterval();
@@ -125,28 +136,33 @@ function increment() {
       //   break;
     }
   } else {
-    distance = (distance % final) + slow;
-    $("#travelled").text(distance);
-    $("#progress").width((distance / 58000000) * 250);
     switch (true) {
-      case distance === moonDistance:
-        clearInterval();
-      checkpointOne();
-        break;
-    case distance === midpointDistance:
-      clearInterval();
-        checkpointTwo();
-        break;
-    case distance === deimosDistance:
-      clearInterval();
-      clearInterval();
-        checkpointThree();
-      break;
-    case distance === final:
-        clearInterval();
-        clearInterval();
-        break;
-    }
+        case distance === moonDistance:
+          clearInterval();
+          checkpointOne();
+          break;
+        case distance === midpointDistance:
+          clearInterval();
+          checkpointTwo();
+          $(".checkpointOne").hide();
+          $(".checkpointTwo").show();
+          break;
+        case distance === deimosDistance:
+          clearInterval();
+          checkpointThree();
+          $(".checkpointTwo").hide();
+          $(".checkpointThree").show();
+          break;
+        case distance === final:
+          clearInterval();
+          winningScreen();
+          break;
+          // case ((eventTimer % 60) === 0):
+          //   clearInterval();
+          //   randomEvent();
+          //   eventTimer = 0;
+          //   break;
+        }
   }
 
   // After the distance check, this function will then check if it's time for a random event
@@ -187,16 +203,16 @@ var event = [
       optionA:
         "You send one of your crew to perform a spacewalk and fix the array. This is the best option to repair the sensor array but you risk losing an astronaut.",
       optionB:
-        "You send the rocket-fuel-powered robot to fix the array, but there is only a 50% chance of it being repaired and the robot consumes the fuel.  ",
+        "You send the rocket-fuel-powered robot to fix the array, but there is only a 50% chance of it being repaired and the robot consumes the fuel.",
       optionC:
-        "You send both a crew memeber and the robot to ensure the repair, but burn extra fuel for the robot and extra oxygen for the astronaut."
+        "You send both a crew memeber and the robot to ensure the repair because you're a baby boomer and you don't trust technology--oh the irony right now."
     },
     result: {
-      resultA: "Success you have repaired the sensor array!",
+      resultA: "Success you have repaired the sensor array! Turns out, the hit gave you a bit of momentum towards mars, you can save some fuel and oxygen.",
       resultB:
-        "The robot was unable to repair the sensor and because it too so long, 30% of your fuel was burned. You had to send an astronaut, who made the repair, but you lost one day",
+        "The robot was unable to repair the sensor and because it too so long, 10% of your fuel was burned. You had to send an astronaut, who made the repair, but you lost one day",
       resultC:
-        "The array is repaired, but fuel and oxygen are both depleted by 25%."
+        "The array is repaired, but the robot misfired a truster. It shot itself and the astronaut into the void of space. You were right not to trust technology."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -209,16 +225,16 @@ var event = [
     image: "LINK",
     fact:
       "As one engineer said, ‘She is phenomenally nominal’ — nominal being space jargon for operating-as-planned.",
-    statement: "All systems nominal.",
+    statement: "All systems nominal. Or so you think. The emptiness of space has caused insanity to grow among the crew. You see an existential crisis about to erupt, how should you respond?",
     option: {
-      optionA: "Continue the voyage!",
-      optionB: "Continue the voyage!",
-      optionC: "Continue the voyage!"
+      optionA: "Shout,'its game night!' and gather the crew around for hours of dungeons and dragons fun.",
+      optionB: "Stop all operations to enjoy a feast. It may use up resources, but at least all your problems will temporarily go away with some not-a-lie cake",
+      optionC: "Continue staring at the unrest..."
     },
     result: {
-      resultA: "The voyage continues!",
-      resultB: "The voyage continues!",
-      resultC: "The voyage continues!"
+      resultA: "Hours of roleplaying has resulted in a total wipe of your DnD party, but hey, it was a good run and you had forgetten you were falling through a void of emptiness.",
+      resultB: "The feast was a success. Everyone is relaxed, full, and unregretably satisfied with all that cake. It was worth the loss of resources.",
+      resultC: "One of your crew members breaks, succumbing to the insanity. Their first reaction is to launch out of the air lock. Maybe it was best for everyone."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -231,18 +247,18 @@ var event = [
     image: "LINK",
     fact: "You need a straw to drink liquids in space!",
     statement:
-      "While trying to scratch his nose, of the crew floated into the coffee machine--HARD! sending coffee flying onto the nav computer.",
+      "While trying to scratch her nose, one of the crew floated into the coffee machine--HARD! sending coffee flying onto the nav computer.",
     option: {
-      optionA: "Repair the nav computer, but lose 3 days due to the down time",
+      optionA: "Gently pat the nav computer with a space rag, don't rub. You've been yelled at your mother long enough to know, never rub a spill.",
       optionB: "'Nav computer?! I don't take directions from a metal box!'",
       optionC: "Fly blind until the coffee dries and the computer reboots."
     },
     result: {
-      resultA: "The the computer was repaired but you lost 3 days.",
+      resultA: "The the computer was repaired. You gain resources for listening to your mother.",
       resultB:
-        "After bashing the nav computer to bit, you fly blind, into a blackhole. Good job! Mission over!",
+        "After bashing the nav computer for a bit, you wonder why you're acting like a barbarian. That deserves a loss of resources.",
       resultC:
-        "After 5 days of flying blind, the computer reboots and you now lost 7 days total and 20% fuel to get back on course."
+        "After flying blindly for a few days, your ship orbits into an extra-dimensional Aztec space god. You're forced to sacrifice a crew member. Who would have thought the Aztecs were right this whole time."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -258,15 +274,15 @@ var event = [
     statement:
       "This is an opportunity to destroy asteroids for much needed oxygen and fuel.",
     option: {
-      optionA: "Play game to mine for only oxygen at 100% return rates.",
-      optionB: "Play game to mine for only fuel at 100% return rates.",
+      optionA: "Send a robot out to mine asteroids for much needed resources.",
+      optionB: "Absolutely refuse to even look at a single asteroid.",
       optionC:
-        "Play game to mine for for both fuel and oxygen at 25% return rates."
+        "Hand a pickaxe to a member of your crew, forcing them to start mining for resources."
     },
     result: {
-      resultA: "Oxygen is mined at 100% return rate",
-      resultB: "Fuel is mined at 100% return rate",
-      resultC: "Both are mined at 25% return rate"
+      resultA: "Oxygen and fuel has been gained! We live to see another random event",
+      resultB: "Why wouldn't you choose to gain resources, idiot. You've only wasted resources from that decision.",
+      resultC: "Well, that was definitely one of your worst decisions. The astronaut collided into an asteroid at tremendous speeds. Remember, it's not the hit that kills you, it's the change in acceleration."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -280,19 +296,19 @@ var event = [
     fact:
       "There is evidence that Mars had a warmer and wetter past: dried-up river beds, polar ice caps, volcanoes, and minerals that form in the presence of water have all been found. Nevertheless, present conditions on Mars' subsurface may support life.",
     statement:
-      "One of the crew has been having chest pains and have been placed in the medical pod. Exams results show that the astronaut has an alien growing inside of him. You must choose from the following:",
+      "One of the crew has been having chest pains and have been placed in the medical pod. Exams results show that the astronaut has an alien growing inside. You must choose from the following:",
     option: {
-      optionA: "Throw him out the airlock, don't need any aliens on the ship",
-      optionB: "Attempt surgery with the robot",
-      optionC: "Perform a host transfer to the rat on the ship"
+      optionA: "Perform a host transfer to a lab rat.",
+      optionB: "Attempt surgery with a robot",
+      optionC: "You've seen the movie 'Alien' plenty of times, so you don't want to risk these symptoms. Throw them out the airlock."
     },
     result: {
       resultA:
-        "A struggle breaks out, and he and another crew member get sucked out of the airlock. You just lost two astronauts. That's what you get for not being compassionate.",
+        "Success! You manage to coax out the alien and transfer it to the rat. The rat was then ejected from the airlock. You'll be remembered lab rat 1101001-CB. That's one less mouth to feed.",
       resultB:
-        "Surgery is unsuccessful and the astronaut dies, but the alien is removed and burned in an incinerator. You also lose 20% fuel for the robot, and 10% oxygen for the incinerator.",
+        "Surgery is successful! The alien has been removed and burned in an incinerator four times over. However, the procedure expended resources.",
       resultC:
-        "You lose 3 days, but you manage to coax out the alien and transfer it to the rat onboard. The rat was thrown out the airlock, solving the problem. Great job on thinking outside the box."
+        "A struggle breaks out, but you manage to shoot the host out of the airlock. Hopefully that body doesn't end up on earth."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -306,20 +322,20 @@ var event = [
     fact:
       "There are millions of asteroids, many thought to be the shattered remnants of planetesimals, bodies within the young Sun's solar nebula that never grew large enough to become planets.",
     statement:
-      "You encountered an asteroid field. Choose how you want to navigate it.",
+      "You encountered an asteroid field. Choose how you want to navigate it. I thought this was between Mars and Jupiter.",
     option: {
-      optionA: "Go around the field and lose 3 days.",
+      optionA: "Go through the field, but risk damange or outright destruction.",
       optionB:
-        "Go through the field and gain 3 days but risk damage or outright destruction.",
-      optionC: "Call NASA for help."
+        "Go around the field. That's going to cost time and resources.",
+      optionC: "Panic and call NASA for help."
     },
     result: {
       resultA:
-        "You managed to navigate around the field and sustained no damage, but lost 3 days.",
+        "Congratulations, you successfull navigated the field and even picked up some resources along the way. Great job!",
       resultB:
-        "Congratulations, you succesfully navigated the field and gained 3 days progress! Without risk, there is no reward.",
+        "You managed to navigate around the field without damages. It was a good call, but you lost resources because of the wasted time.",
       resultC:
-        "After waiting for NASA to respond, they directed you around the field. You lost a total of 5 days because you could not trust your own descisions."
+        "After waiting for NASA to respond, one of the astronauts gets impatient. Resulting in a spacewalk for a better view of the field. That was a terrbile idea, the astronaut forgot a tether. Bye bye astronaut."
     },
     multiplier: {
       multiplierA: "math-a",
@@ -346,8 +362,8 @@ var checkpoint = [
     },
     result: {
       resultA:
-        "You land on the dark side of the Moon and are greeted Moon Men who are friendly and give you provisions and refuel your oxygen and fuel. ",
-      resultB: "You continue on your current course and never look back.",
+        "You land on the dark side of the Moon and are greeted by Moon Men who are friendly and give you provisions; resupplying your oxygen and fuel. ",
+      resultB: "You continue on your current course and never look back. Bye Felicia.",
       resultC:
         "NASA is shocked and does not know what to do, this scares you so bad that you die of dysentary. Mission over!"
     },
@@ -361,21 +377,21 @@ var checkpoint = [
     name: "Midpoint",
     image: "url",
     fact:
-      "'Nobody can prove that there is not between the Earth and Mars a china teapot revolving in an elliptical orbit, but nobody thinks this sufficiently likely to be taken into account in practice.'-Bertrand Russell Congratlations! You have reached the halfway point between Earth and Mars, an amazing feat unto itself.",
+      "'Nobody can prove that there is NOT a china teapot revolving in an elliptical orbit between the Earth and Mars, but nobody thinks this sufficiently likely to be taken into account in practice.'-Bertrand Russell Congratlations! You have reached the halfway point between Earth and Mars, an amazing feat unto itself.",
     statement:
       "You encoutner a glowing green orb that is approaching your ship! Without much time to react you have to choose to do one of the following:",
     option: {
       optionA:
         "Not wanting to take a risk, you turn your ship to avoid the glowing orb.",
       optionB:
-        "Thinking that your experience with the Moon Men was positive, you decide to engage the orb.",
+        "Thinking that your experience at the Moon was positive, you decide to engage the orb.",
       optionC: "You reverse thrust!"
     },
     result: {
       resultA:
-        "While you succeed in navigating the ship around the orb, the high amount of energy coming from the orb causes arc flashes which damage your oxygen tanks and you have lost some of your supply.",
+        "While you succeed in navigating the ship around the orb, the high amount of energy coming from the orb causes EM radiation damage to your oxygen tanks and you have lost some of your supply.",
       resultB:
-        "As you engage the orb, high amounts of energy and electricity surround and penetrate the ship, causing you to lose consciousness... After coming to, you find that you survived your encoutner with the orb, but your crew has not, they have all turned into skeletons!",
+        "As you engage the orb, high amounts of energy surround and penetrate the ship, causing you to lose consciousness... After coming to, you find that you survived your encoutner with the orb, but your crew has not, they have all turned into skeletons! Good luck.",
       resultC:
         "After backing it up, and changing course you totally avoided any encounter with the orb. However, you lost several days off your mission, which has set you back."
     },
@@ -396,13 +412,13 @@ var checkpoint = [
       optionA: "You drop the sand and run like hell back to the ship.",
       optionB:
         "You hold on to the sand, which slows you down, and hightail it back to the ship.",
-      optionC: "You go rambo on their asses and start hurling rocks at them. "
+      optionC: "You go rambo on their asses and start hurling rocks at them."
     },
     result: {
       resultA:
         "You arrive but your crew has been devoured by demons and you took a few fireballs to the butt. You really don't need that sand anyways.",
       resultB:
-        "The demons are gaining on you as your crew dashes ahead. They dropped thier sand, and you decide to do it, too. You take a few fireballs to the butt, but get back to the ship and get off that rock.",
+        "The demons are gaining on you as your crew dashes ahead. They dropped their sand, and you decide to do it, too. You take a few fireballs to the butt, but get back to the ship and get off that rock.",
       resultC:
         "Biggest mistake ever!! Why you gonna throw a rock at a demon? You are eviscerated and torn to shreads as your crew watches in terror, knowing what will happen to them next. Your name and photo appear in the Darwin Awards as number one idiot getting themselves killed. Good Job, idiot! Enjoy burning in Hell!"
     },
@@ -470,6 +486,7 @@ function randomEvent() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedEvent.result.resultA);
+    resourceGain();
     interval = setInterval(increment, 1000);
   });
 
@@ -477,6 +494,7 @@ function randomEvent() {
     factsContainer.hide();
     optionsContainer.hide();
     result.text(selectedEvent.result.resultB);
+    resourceLoss();
     interval = setInterval(increment, 1000);
   });
 
@@ -485,6 +503,7 @@ function randomEvent() {
     optionsContainer.hide();
     result.text(selectedEvent.result.resultC);
     interval = setInterval(increment, 1000);
+    killAstronaut();
   });
 }
 
@@ -519,6 +538,7 @@ function checkpointOne() {
     result.text(selectedCheckpoint.result.resultA);
     fast = 116000;
     slow = 58000;
+    resourceGain();
     interval = setInterval(increment, 1000);
   });
 
@@ -578,6 +598,7 @@ function checkpointTwo() {
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
+    resourceLoss();
   });
 
   optionB.click(function() {
@@ -593,6 +614,7 @@ function checkpointTwo() {
   optionC.click(function() {
     factsContainer.hide();
     optionsContainer.hide();
+    days = days + 5;
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
   });
@@ -632,6 +654,7 @@ function checkpointThree() {
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultA);
     interval = setInterval(increment, 1000);
+    killAstronaut();
   });
 
   optionB.click(function() {
