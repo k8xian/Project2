@@ -7,7 +7,7 @@
 
 **Deployment Link:** https://martianodyssey.herokuapp.com
 
-**For** Northwestern University's Full Stack Flex Coding Bootcamp
+**For Northwestern University's Full Stack Flex Coding Bootcamp**
 
 * This web-app is an homage to the 1997 game Oregon Trail, but set in space on a mission to Mars
 
