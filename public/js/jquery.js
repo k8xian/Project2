@@ -49,19 +49,23 @@ $(document).ready(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("I got clicked!");
-    var message = $("#finalMessage").val();
-    var missionid = $("#missionID").val();
+    var thisMission = $("#missionName").attr("data-name");
+    var finalMessage = $("#finalMessage").val();
+    console.log(thisMission);
+    console.log(finalMessage);
 
     var newData = {
-      message: message,
-      id: missionid
+      missionName: thisMission,
+      finalMessage: finalMessage
     };
-    if (message) {
-      $.ajax("/api/losers", {
+    if (finalMessage) {
+      $.ajax("/api/winners", {
         type: "POST",
         data: newData
       }).then(function() {
-        console.log("Added an epitaph");
+        console.log("Added a Victory Message");
+        console.log(finalMessage);
+        location.replace("/successful_missions");
       });
     }
   });
@@ -70,19 +74,23 @@ $(document).ready(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("I got clicked!");
-    var message = $("#finalMessage").val();
-    var missionid = $("#missionID").val();
+    var thisMission = $("#missionName").attr("data-name");
+    var finalMessage = $("#finalMessage").val();
+    console.log(thisMission);
+    console.log(finalMessage);
 
     var newData = {
-      message: message,
-      id: missionid
+      missionName: thisMission,
+      finalMessage: finalMessage
     };
-    if (message) {
+    if (finalMessage) {
       $.ajax("/api/losers", {
         type: "POST",
         data: newData
       }).then(function() {
         console.log("Added an epitaph");
+        console.log(finalMessage);
+        location.replace("/failed_missions");
       });
     }
   });
