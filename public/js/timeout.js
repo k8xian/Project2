@@ -87,7 +87,7 @@ var killAstronaut = function() {
     $("#astHelmThree").addClass("dead");
   } else if (astOneDead && astTwoDead && astThreeDead) {
     astFourDead = true;
-    $("#astHelmThree").addClass("dead");
+    $("#astHelmFour").addClass("dead");
   } else if (astOneDead && astTwoDead && astThreeDead && astFourDead) {
     losingScreen();
     return;
