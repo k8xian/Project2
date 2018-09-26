@@ -150,11 +150,11 @@ function increment() {
   }
 
   // After the distance check, this function will then check if it's time for a random event
-  //   if (eventTimer % 60 === 0) {
-  //     console.log("random event was triggered");
-  //     clearInterval();
-  //     randomEvent();
-  //   }
+    if (eventTimer % 60 === 0) {
+      console.log("random event was triggered");
+      clearInterval();
+      randomEvent();
+    }
 
   if (dayIncrements % 12 === 0) {
     days++;
@@ -229,9 +229,9 @@ var event = [
   {
     name: "coffee snafu",
     image: "LINK",
-    fact: "I like Turtles",
+    fact: "You need a straw to drink liquids in space!",
     statement:
-      "While trying to scratch their nose, of the crew floated into the coffee machine--HARD! sending coffee flying onto the nav computer.",
+      "While trying to scratch his nose, of the crew floated into the coffee machine--HARD! sending coffee flying onto the nav computer.",
     option: {
       optionA: "Repair the nav computer, but lose 3 days due to the down time",
       optionB: "'Nav computer?! I don't take directions from a metal box!'",
@@ -438,6 +438,12 @@ var result = $("#status");
 
 // for random event triggers
 function randomEvent() {
+
+  // unbind events
+  optionA.unbind("click");
+  optionB.unbind("click");
+  optionC.unbind("click");
+
   var random = event[Math.floor(Math.random() * event.length)];
 
   var selectedEvent = {
@@ -483,6 +489,11 @@ function randomEvent() {
 }
 
 function checkpointOne() {
+ // unbind events
+ optionA.unbind("click");
+ optionB.unbind("click");
+ optionC.unbind("click");
+
   var selectedCheckpoint = {
     name: checkpoint[0].name,
     image: checkpoint[0].image,
@@ -527,6 +538,7 @@ function checkpointOne() {
     fast = 116000;
     slow = 58000;
     interval = setInterval(increment, 1000);
+    losingScreen();
   });
 
   console.log(selectedCheckpoint);
@@ -536,6 +548,12 @@ function checkpointOne() {
 }
 
 function checkpointTwo() {
+
+ // unbind events
+ optionA.unbind("click");
+ optionB.unbind("click");
+ optionC.unbind("click");
+
   var selectedCheckpoint = {
     name: checkpoint[1].name,
     image: checkpoint[1].image,
@@ -567,6 +585,9 @@ function checkpointTwo() {
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultB);
     interval = setInterval(increment, 1000);
+    killAstronaut();
+    killAstronaut();
+    killAstronaut();
   });
 
   optionC.click(function() {
@@ -581,6 +602,11 @@ function checkpointTwo() {
 }
 
 function checkpointThree() {
+ // unbind events
+ optionA.unbind("click");
+ optionB.unbind("click");
+ optionC.unbind("click");
+
   var selectedCheckpoint = {
     name: checkpoint[2].name,
     image: checkpoint[2].image,
@@ -620,6 +646,7 @@ function checkpointThree() {
     optionsContainer.hide();
     result.text(selectedCheckpoint.result.resultC);
     interval = setInterval(increment, 1000);
+    losingScreen();
   });
 
   distanceAway = 11600000;
